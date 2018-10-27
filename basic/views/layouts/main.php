@@ -24,7 +24,7 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <link rel="shortcut icon" href="/sitep/images/icon.png" type="image/x-icon"/>
     
-    <title><?php echo "Agua del Valle 2" ?></title>
+    <title><?php echo "Agua del Valle" ?></title>
     
     <?php $this->head() ?>
 </head>
