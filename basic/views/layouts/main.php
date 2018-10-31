@@ -1,3 +1,4 @@
+    
 <?php
 use app\widgets\Alert;
 use yii\helpers\Html;
@@ -6,7 +7,6 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 use yii\bootstrap\Collapse;
-
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -37,14 +37,12 @@ $base = Yii::$app->request->baseUrl.'/index.php?r=';
 
     <div class="container-fluid">
         <div class="container align-bottom" style="background:#3696e8;border-bottom: 5px solid rgb(18, 31, 129); padding: 10px;">
-            <div class="col-sm-1" <style= "width:5px"><?= Html::a('<img src="../images/loso.jpg">', ['/site/index']);?> </div>
+            <div class="col-sm-1" <style= "width:5px"></div>
             <div class="col-sm-4 hidden-xs">
                 <small style="color: #ffffff;font-size: 95%;">
-                   <span>Agua del Valle</span>
-                    <span>0343-4302288</span><br/>
+                   <span>Agua del Valle</span><br/>
                     <span>Juan Báez 26</span><br/>
-                    <span>Paraná - Entre Ríos</span><br/>
-                    <span>aguavalle@hotmail.com.ar</span><br/>
+                    <span>Paraná - Entre Ríos</span>
                 </small>    
             </div>
             
@@ -70,7 +68,7 @@ $base = Yii::$app->request->baseUrl.'/index.php?r=';
     <div class="container-fluid" style="margin: 2px 0px;">
         <div class="container body-principal">             
             <div class="col-sm-2" style="padding: 0px;overflow: hidden;"> 
-		    	<?php include('C:\xampp\htdocs\basic\views\layouts\menu.php'); ?> 
+		    	<?php include('C:\xampp\htdocs\aquaGYD\basic\views\layouts\menu.php'); ?> 
             </div>
             <div class="col-sm-10 padding-right-0" style="overflow: hidden;"> <?= $content ?> </div>
         </div> <!-- end columnas -->  
@@ -106,7 +104,7 @@ $base = Yii::$app->request->baseUrl.'/index.php?r=';
         </div>    
 
     </footer>
-    
+
 <?php $this->endBody() ?>
 </body>
 </html>

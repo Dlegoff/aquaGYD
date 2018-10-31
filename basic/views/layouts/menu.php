@@ -13,7 +13,7 @@ NavBar::begin(['brandLabel' => '', 'options' => ['class' => 'navbar menu-princip
                     'id' => 'menuObjeto',
                     'label' => 'Primer Menu',
                     'content' =>
-                      '<a class="list-group-item" href="#">primer menu</a></li>'.
+                      '<a class="list-group-item" href="//usuario/usuarioController/index">Alta Usuario</a></li>'.
                       '<a class="list-group-item" href="#">segundo menu</a></li>'.
                       '<a class="list-group-item" href="#">tercer menu</a></li>'.
                       '<a class="list-group-item" href="#">cuarto menu</a></li>'.
@@ -26,9 +26,9 @@ NavBar::begin(['brandLabel' => '', 'options' => ['class' => 'navbar menu-princip
                     'label' => 'Segundo Menu(clave)',
                     'options' => [ 'style' => 'display:' . (!Yii::$app->user->isGuest ? 'block' : 'none') ],
                     'content' =>
-                      '<a class="list-group-item hide" id="primer_menu" href="#">primer menu</a></li>'.
-                      '<a class="list-group-item hide" id="segundo_menu" href="#">segundo menu</a></li>'.
-                      '<a class="list-group-item hide" id="tercer_menu" href="#">tercer menu</a></li>',
+                      '<a class="list-group-item" id="primer_menu" href="#">primer menu</a></li>'.
+                      '<a class="list-group-item" id="segundo_menu" href="#">segundo menu</a></li>'.
+                      '<a class="list-group-item" id="tercer_menu" href="#">tercer menu</a></li>',
                       'contentOptions' => ['class' => 'in']
                 ],
                 [
@@ -63,7 +63,6 @@ $('#navigation').on('show.bs.collapse', function () {
     $(this).attr("aria-expanded", true);
     $(this).attr("style", "");      
   });
-  
   e.preventDefault();
 })
   
