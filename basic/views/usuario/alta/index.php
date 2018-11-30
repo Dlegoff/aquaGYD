@@ -10,7 +10,7 @@ use \yii\widgets\Pjax;
 use yii\widgets\MaskedInput;
 
 
-//$form = ActiveForm::begin('id'=>'formUsuarios' ]);
+$form = ActiveForm::begin('id'=>'formUsuarios' ]);
 ?>
 
 <div class="container-fluid">
@@ -23,7 +23,7 @@ use yii\widgets\MaskedInput;
 			</div>	
 				<div class="col-sm-2 padding-0" align='right'>
 					<?php 
-						Html::a( 'Volver ',['index'], [ 'class' => 'btn btn-buscar', 'title' => utf8_encode('Volver')] ); 	
+						echo Html::a( 'Volver ',['index'], [ 'class' => 'btn btn-buscar', 'title' => utf8_encode('Volver')] ); 	
 					?>
 				</div>
 				
@@ -56,7 +56,7 @@ use yii\widgets\MaskedInput;
 			<div class="container-fluid flex-vertical-center">
 				<div class="col-sm-12 padding-0" align="center">
 					<?php		
-						//echo Html::button( utf8_encode('Grabar'), [ 'class' => 'btn btn-buscar','id'=>'btnGrabar', 'title' => utf8_encode('Grabar'), 'onclick' => "f_Grabar()" ] ); 			
+						echo Html::button( utf8_encode('Grabar'), [ 'class' => 'btn btn-buscar','id'=>'btnGrabar', 'title' => utf8_encode('Grabar'), 'onclick' => "f_Grabar()" ] ); 			
 					?>
 				</div>
 			</div>
@@ -65,8 +65,8 @@ use yii\widgets\MaskedInput;
 </div>
 
 <?php
-//ActiveForm::end();
-//echo Html::errorSummary([], ['style' => 'margin-top:10px;','id'=>'error', 'class' => "alert alert-danger text-left" ] );
+ActiveForm::end();
+echo Html::errorSummary([], ['style' => 'margin-top:10px;','id'=>'error', 'class' => "alert alert-danger text-left" ] );
 
 ?>
 <script>

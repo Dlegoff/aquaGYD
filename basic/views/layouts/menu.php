@@ -13,8 +13,8 @@ NavBar::begin(['brandLabel' => '', 'options' => ['class' => 'navbar menu-princip
                     'id' => 'menuObjeto',
                     'label' => 'Primer Menu',
                     'content' =>
-                      '<a class="list-group-item" href="'.Yii::$app->param->urlaqua.'usuario/index">Alta Usuario</a></li>'.
-                      '<a class="list-group-item" href="#">segundo menu</a></li>'.
+                      '<a class="list-group-item" href="/aquaGYD/basic/views/usuario/index.php?r=usuario%2Findex">Alta Usuario</a></li>'.
+                      '<a class="list-group-item" href="/aquaGYD/basic/web/index.php?r=site%2Findex">segundo menu</a></li>'.
                       '<a class="list-group-item" href="#">tercer menu</a></li>'.
                       '<a class="list-group-item" href="#">cuarto menu</a></li>'.
                       '<a class="list-group-item" href="#">quinto menu</a></li>'.
