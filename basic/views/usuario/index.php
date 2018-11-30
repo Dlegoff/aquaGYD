@@ -23,7 +23,7 @@ use yii\widgets\MaskedInput;
 			</div>	
 				<div class="col-sm-2 padding-0" align='right'>
 					<?php 
-						Html::a( 'Volver ',['index'], [ 'class' => 'btn btn-buscar', 'title' => utf8_encode('Volver')] ); 	
+						//Html::a( 'Volver ',['index'], [ 'class' => 'btn btn-buscar', 'title' => utf8_encode('Volver')] ); 	
 					?>
 				</div>
 				

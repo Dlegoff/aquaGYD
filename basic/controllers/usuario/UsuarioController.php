@@ -1,11 +1,11 @@
 <?php
 
-namespace app\controllers;
+namespace app\controllers\usuario;
 
 use Yii;
-use app\models\ctacte\Usuario;
-use app\utils\db\utb;
-
+use app\models\usuario\Usuario;
+//use app\utils\utb;
+//use \yii\web\Controller;
 use yii\data\ArrayDataProvider;
 
 
@@ -22,7 +22,6 @@ class UsuarioController extends \yii\web\Controller
 		
 		return $this->render('//usuario/alta/index',['modelUsuario'=>$modelUsuario]);
 	}
-
 	
 }
 		

@@ -1,9 +1,9 @@
 <?php
 
-namespace app\models\Usuario;
+namespace app\models\usuario;
 
 use Yii;
-use app\utils\db\utb;
+//use app\utils\db\utb;
 
 
 class Usuario extends \yii\db\ActiveRecord

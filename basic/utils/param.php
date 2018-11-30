@@ -25,7 +25,7 @@ class param extends Component
 		//$this->dns = "https://172.16.61.168/";
 		
 		$this->name = "Agua del Valle";
-		$this->urlaqua = "/aquaGYD/basic/index.php?r=";
+		$this->urlaqua = "/aquaGYD/basic/web/index.php?r=";
 		$this->logo = '/aquaGYD/basics/images/1/logo_muni.png';
 		$this->logo_grande = '/aquaGYD/basic/images/1/logo_aqua_grande.jpg';
 		$this->logo_talon = '/aquaGYD/basic/images/1/logo_aqua_chico.jpg';
