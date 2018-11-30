@@ -13,13 +13,10 @@ class Usuario extends \yii\db\ActiveRecord
 	public $cuit;
 
 
-	public function rules()
+	/*public function rules()
     {
         return [
          
 		];
-    }
-	
-
-	
+    }*/
 }

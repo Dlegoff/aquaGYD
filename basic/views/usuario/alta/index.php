@@ -10,7 +10,7 @@ use \yii\widgets\Pjax;
 use yii\widgets\MaskedInput;
 
 
-$form = ActiveForm::begin('id'=>'formUsuarios' ]);
+//$form = ActiveForm::begin('id'=>'formUsuarios' ]);
 ?>
 
 <div class="container-fluid">
@@ -54,7 +54,7 @@ $form = ActiveForm::begin('id'=>'formUsuarios' ]);
 				</div>
 			</div>
 			<div class="container-fluid flex-vertical-center">
-				<div class="col-sm-12 padding-0" align="center">
+				<div class="col-sm-12 padding-0" align="right">
 					<?php		
 						echo Html::button( utf8_encode('Grabar'), [ 'class' => 'btn btn-buscar','id'=>'btnGrabar', 'title' => utf8_encode('Grabar'), 'onclick' => "f_Grabar()" ] ); 			
 					?>
@@ -65,7 +65,7 @@ $form = ActiveForm::begin('id'=>'formUsuarios' ]);
 </div>
 
 <?php
-ActiveForm::end();
+//ActiveForm::end();
 echo Html::errorSummary([], ['style' => 'margin-top:10px;','id'=>'error', 'class' => "alert alert-danger text-left" ] );
 
 ?>

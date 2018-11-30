@@ -4,9 +4,6 @@ namespace app\controllers\usuario;
 
 use Yii;
 use app\models\usuario\Usuario;
-//use app\utils\utb;
-//use \yii\web\Controller;
-use yii\data\ArrayDataProvider;
 
 
 class UsuarioController extends \yii\web\Controller
@@ -18,14 +15,10 @@ class UsuarioController extends \yii\web\Controller
 		
 	public function actionIndex()
 	{	
-		$modelUsuario=new Usuario();
+		//$modelUsuario=new Usuario();
 		
-		return $this->render('//usuario/alta/index',['modelUsuario'=>$modelUsuario]);
+		return $this->render('//usuario/alta/index');
+		/*,['modelUsuario'=>$modelUsuario]);*/
 	}
 	
 }
-		
-
-
-		
-		

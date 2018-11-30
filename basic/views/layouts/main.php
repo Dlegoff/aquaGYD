@@ -10,7 +10,6 @@ use yii\bootstrap\Collapse;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
-
 AppAsset::register($this);
 
 ?>
