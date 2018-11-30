@@ -1,6 +1,6 @@
 <?php
 
-namespace app\models\usuario;
+namespace app\models\Usuario;
 
 use Yii;
 use app\utils\db\utb;

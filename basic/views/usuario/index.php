@@ -56,7 +56,7 @@ $form = ActiveForm::begin('id'=>'formUsuarios' ]);
 			<div class="container-fluid flex-vertical-center">
 				<div class="col-sm-12 padding-0" align="center">
 					<?php		
-							echo Html::button( utf8_encode('Procesar'), [ 'class' => 'btn btn-buscar','id'=>'botonProcesar', 'title' => utf8_encode('Procesar'), 'onclick' => "f_Procesar()" ] ); 			
+						echo Html::button( utf8_encode('Grabar'), [ 'class' => 'btn btn-buscar','id'=>'btnGrabar', 'title' => utf8_encode('Grabar'), 'onclick' => "f_Grabar()" ] ); 			
 					?>
 				</div>
 			</div>
@@ -71,7 +71,7 @@ echo Html::errorSummary([], ['style' => 'margin-top:10px;','id'=>'error', 'class
 ?>
 <script>
 
-function f_Procesar(){
+function f_Grabar(){
 
 }
 

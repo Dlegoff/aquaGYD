@@ -20,7 +20,7 @@ class UsuarioController extends \yii\web\Controller
 	{	
 		$modelUsuario=new Usuario();
 		
-		return $this->render('index',['modelUsuario'=>$modelAgentes]);
+		return $this->render('index',['modelUsuario'=>$modelUsuario]);
 	}
 
 	

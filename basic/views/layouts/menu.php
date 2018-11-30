@@ -13,7 +13,7 @@ NavBar::begin(['brandLabel' => '', 'options' => ['class' => 'navbar menu-princip
                     'id' => 'menuObjeto',
                     'label' => 'Primer Menu',
                     'content' =>
-                      '<a class="list-group-item" href="//usuario/usuarioController/index">Alta Usuario</a></li>'.
+                      '<a class="list-group-item" href="'.Yii::$app->param->urlaqua.'usuario/index">Alta Usuario</a></li>'.
                       '<a class="list-group-item" href="#">segundo menu</a></li>'.
                       '<a class="list-group-item" href="#">tercer menu</a></li>'.
                       '<a class="list-group-item" href="#">cuarto menu</a></li>'.

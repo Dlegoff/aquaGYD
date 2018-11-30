@@ -5,6 +5,7 @@ $db = require __DIR__ . '/db.php';
 
 $config = [
     'id' => 'basic',
+    'name' => 'Agua del Valle',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'aliases' => [
@@ -42,6 +43,7 @@ $config = [
                 ],
             ],
         ],
+        'param' => 'app\utils\param',
         'db' => $db,
         /*
         'urlManager' => [
