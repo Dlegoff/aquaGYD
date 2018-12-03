@@ -13,11 +13,17 @@ NavBar::begin(['brandLabel' => '', 'options' => ['class' => 'navbar menu-princip
                     'id' => 'menuObjeto',
                     'label' => 'Primer Menu',
                     'content' =>
-                      '<a class="list-group-item" href="' .Yii::$app->param->urlaqua. 'usuario/usuario/index">Alta Usuario</a></li>'.
-                      '<a class="list-group-item" href="/aquaGYD/basic/web/index.php?r=site%2Findex">segundo menu</a></li>'.
-                      '<a class="list-group-item" href="#">tercer menu</a></li>'.
-                      '<a class="list-group-item" href="#">cuarto menu</a></li>'.
-                      '<a class="list-group-item" href="#">quinto menu</a></li>'.
+                      '<a class="list-group-item" href="' .Yii::$app->param->urlaqua. 'usuario/usuario/index"> Usuarios</a></li>'.
+                      '<a class="list-group-item" href="' .Yii::$app->param->urlaqua. 'cliente/index">Clientes</a></li>'.
+                      '<a class="list-group-item" href="' .Yii::$app->param->urlaqua. 'producto/index">Productos</a></li>'.
+                      '<a class="list-group-item" href="' .Yii::$app->param->urlaqua. 'camion/index">Camiones</a></li>'.
+                      '<a class="list-group-item" href="' .Yii::$app->param->urlaqua. 'dispenser/index">Dispenser</a></li>'.
+                      '<a class="list-group-item" href="' .Yii::$app->param->urlaqua. 'domestico/index">Domesticos</a></li>'.
+                      '<a class="list-group-item" href="' .Yii::$app->param->urlaqua. 'localidad/index">Localidades</a></li>'.
+                      '<a class="list-group-item" href="' .Yii::$app->param->urlaqua. 'mantenimiento/index">Mantenimientos</a></li>'.
+                      '<a class="list-group-item" href="' .Yii::$app->param->urlaqua. 'repartidor/index">Empleados</a></li>'.
+                      '<a class="list-group-item" href="' .Yii::$app->param->urlaqua. 'reparto/index">Repartos</a></li>'.
+                      '<a class="list-group-item" href="' .Yii::$app->param->urlaqua. 'revendedor/index">Revendedores</a></li>'.
                       '<a class="list-group-item" href="#">sexto menu</a></li>',
                       'contentOptions' => ['class' => 'in']
                 ],
@@ -26,7 +32,7 @@ NavBar::begin(['brandLabel' => '', 'options' => ['class' => 'navbar menu-princip
                     'label' => 'Segundo Menu(clave)',
                     'options' => [ 'style' => 'display:' . (!Yii::$app->user->isGuest ? 'block' : 'none') ],
                     'content' =>
-                      '<a class="list-group-item" id="primer_menu" href="#">primer menu</a></li>'.
+                      '<a class="list-group-item" href="' .Yii::$app->param->urlaqua. 'descuento/index">Descuentos</a></li>'.
                       '<a class="list-group-item" id="segundo_menu" href="#">segundo menu</a></li>'.
                       '<a class="list-group-item" id="tercer_menu" href="#">tercer menu</a></li>',
                       'contentOptions' => ['class' => 'in']
