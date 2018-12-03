@@ -256,17 +256,17 @@ div.container-fluid{
 }
 
 .table-bordered, .table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tbody > tr > td {
-    border-color: #9dd4bf;
+    border-color: #fafdfc;
 }
 
 .table > thead{
-    background: #69b98c;
-    color: #266144;
+    background: #6eb5f3;
+    color: #000000;
 }
 
 .table > tbody{
-    background: #d2f5d9;
-    color: #356c51;
+    background: #6eb5f3;
+    color: #000000;
 }
 
 .table-bordered > tbody > tr > td, .table-bordered > thead > tr > th{
