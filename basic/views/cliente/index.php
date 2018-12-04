@@ -46,7 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             ['attribute' => 'nombre', 'label' => 'Nombre','contentOptions' => [ 'style' => 'text-align:center'] ],
                             ['attribute' => 'observaciones', 'label' => 'Observaciones','contentOptions' => [ 'style' => 'text-align:center'] ],
                             ['attribute' => 'idCuenta', 'label' => 'Nº Cuenta','contentOptions' => [ 'style' => 'text-align:center'] ],
-                            ['attribute' => 'idLoc', 'label' => 'Cod. Localidad','contentOptions' => [ 'style' => 'text-align:center'] ],
+                            //['attribute' => 'idLoc', 'label' => 'Cod. Localidad','contentOptions' => [ 'style' => 'text-align:center'] ],
                             ['class' => 'yii\grid\ActionColumn'],
                         ],
                     ]); ?>

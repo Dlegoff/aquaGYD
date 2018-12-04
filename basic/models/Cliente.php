@@ -57,7 +57,7 @@ class Cliente extends \yii\db\ActiveRecord
             'nombre' => 'Nombre',
             'observaciones' => 'Observaciones',
             'idCuenta' => 'Id Cuenta',
-            'idLoc' => 'Id Loc',
+            //'idLoc' => 'Id Loc',
         ];
     }
 
@@ -88,10 +88,10 @@ class Cliente extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getLocs()
+    /*public function getLocs()
     {
         return $this->hasMany(Localidad::className(), ['idLoc' => 'idLoc'])->viaTable('cliente_loc', ['nroCli' => 'NroCli']);
-    }
+    }*/
 
     /**
      * @return \yii\db\ActiveQuery

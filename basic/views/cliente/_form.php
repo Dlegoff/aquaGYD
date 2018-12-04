@@ -48,12 +48,6 @@ use yii\widgets\ActiveForm;
                         <?= $form->field($model, 'idCuenta')->textInput()->label(false) ?>
                     </div>
                 </div>
-                <div class="container-fluid flex-vertical-center">
-                    <div class="col-sm-2 padding-0">Localidad:</div>
-                    <div class="col-sm-10 padding-0">
-                        <?= $form->field($model, 'idLoc')->textInput()->label(false) ?>
-                    </div>
-                </div>
             </div>
         </div>
     <div class="panel panel-default">
