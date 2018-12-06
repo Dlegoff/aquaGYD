@@ -18,7 +18,7 @@ class ClienteBuscar extends Cliente
     public function rules()
     {
         return [
-            [['NroCli', 'idCuenta', 'idLoc'], 'integer'],
+            [['NroCli', 'idCuenta'], 'integer'],
             [['nombre', 'observaciones'], 'safe'],
         ];
     }
@@ -61,7 +61,6 @@ class ClienteBuscar extends Cliente
         $query->andFilterWhere([
             'NroCli' => $this->NroCli,
             'idCuenta' => $this->idCuenta,
-            'idLoc' => $this->idLoc,
         ]);
 
         $query->andFilterWhere(['like', 'nombre', $this->nombre])
