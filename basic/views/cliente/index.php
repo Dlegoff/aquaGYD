@@ -35,21 +35,24 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="panel-body">
                 <div class="container-fluid" style="margin-top:10px;">
                     <?= GridView::widget([
+                        'id'    => 'grillaclientes',
                         'dataProvider' => $dataProvider,
                         'filterModel' => $searchModel,
                         'headerRowOptions' => ['class' => 'grilla'],
                         'summaryOptions' => ['class' => 'hidden'],
                         'rowOptions' => ['class' => 'grilla'],
+                        'formatter' => ['class' => 'yii\i18n\Formatter','nullDisplay' => ''],
                         'columns' => [
                             //['class' => 'yii\grid\SerialColumn'],
-                            ['attribute' => 'NroCli', 'label' => 'Nº Cliente','contentOptions' => [ 'style' => 'text-align:center'] ],
+                            ['attribute' => 'NroCli', 'label' => 'Nº Cliente','contentOptions' => [ 'style' => 'text-align:center;width:8px'] ],
                             ['attribute' => 'nombre', 'label' => 'Nombre','contentOptions' => [ 'style' => 'text-align:center'] ],
                             ['attribute' => 'observaciones', 'label' => 'Observaciones','contentOptions' => [ 'style' => 'text-align:center'] ],
-                            ['attribute' => 'idCuenta', 'label' => 'Nº Cuenta','contentOptions' => [ 'style' => 'text-align:center'] ],
+                            ['attribute' => 'idCuenta', 'label' => 'Nº Cuenta','contentOptions' => [ 'style' => 'text-align:center;width:8px'] ],
                             //['attribute' => 'idLoc', 'label' => 'Cod. Localidad','contentOptions' => [ 'style' => 'text-align:center'] ],
                             ['class' => 'yii\grid\ActionColumn'],
                         ],
-                    ]); ?>
+                     ]); 
+                    ?>
                 </div>
             </div>
         </div>

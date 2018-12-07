@@ -36,6 +36,7 @@ $base = Yii::$app->request->baseUrl.'/index.php?r=';
 
     <div class="container-fluid">
         <div class="container align-bottom" style="background:#3696e8;border-bottom: 5px solid rgb(18, 31, 129); padding: 10px;">
+            <div class="col-sm-1"> <?= Html::a('<img src="/aquaGYD/basic/images/logo.jpg">', ['/site/index']);?> </div>
             <div class="col-sm-1" <style= "width:5px"></div>
             <div class="col-sm-4 hidden-xs">
                 <small style="color: #ffffff;font-size: 95%;">
@@ -88,11 +89,12 @@ $base = Yii::$app->request->baseUrl.'/index.php?r=';
             <div class="footer-copyright" style="color: rgb(18, 31, 129);">
                 <div class="row flex-vertical-center">
                     <div class="col-sm-2">
-                        <?="Imagen"?>
                         <b style="margin-left: 1%"> Taller de Integracion </b>
                     </div>
                     <div class="col-sm-8 text-center">  
-                        <span style="margin-left: 2%">Usuario: <b> <?="Usuario logueado"?>  </b>  </span>
+                       <?php if ( !Yii::$app->user->isGuest ) { ?>
+                        <span style="margin-left: 2%">Usuario: <b> <?= Yii::$app->user->identity->nombre; ?>  </b>  </span>
+                    <?php } ?>
                     </div>
                     <div class="col-sm-2 text-right">   
                         <span style="margin-left: 2%">Fecha: <b><?= date("d/m/Y") ?></b></span>

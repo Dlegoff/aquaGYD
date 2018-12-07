@@ -9,6 +9,7 @@ class User extends \yii\base\BaseObject implements \yii\web\IdentityInterface
     public $password;
     public $authKey;
     public $accessToken;
+    public $nombre="aquaGYD";
 
     private static $users = [
         '1' => [

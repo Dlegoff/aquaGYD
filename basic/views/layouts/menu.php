@@ -11,7 +11,7 @@ NavBar::begin(['brandLabel' => '', 'options' => ['class' => 'navbar menu-princip
             'items' => [
                 [
                     'id' => 'menuObjeto',
-                    'label' => 'Primer Menu',
+                    'label' => 'Configuraciones',
                     'content' =>
                       '<a class="list-group-item" href="' .Yii::$app->param->urlaqua. 'usuario/usuario/index"> Usuarios</a></li>'.
                       '<a class="list-group-item" href="' .Yii::$app->param->urlaqua. 'cliente/index">Clientes</a></li>'.
@@ -28,7 +28,7 @@ NavBar::begin(['brandLabel' => '', 'options' => ['class' => 'navbar menu-princip
                       'contentOptions' => ['class' => 'in']
                 ],
                 [
-                    'id' => 'menuAccesoClave',
+                    'id' => 'Operaciones',
                     'label' => 'Segundo Menu(clave)',
                     'options' => [ 'style' => 'display:' . (!Yii::$app->user->isGuest ? 'block' : 'none') ],
                     'content' =>

@@ -26,9 +26,7 @@ class param extends Component
 		
 		$this->name = "Agua del Valle";
 		$this->urlaqua = "/aquaGYD/basic/web/index.php?r=";
-		$this->logo = '/aquaGYD/basics/images/1/logo_muni.png';
-		$this->logo_grande = '/aquaGYD/basic/images/1/logo_aqua_grande.jpg';
-		$this->logo_talon = '/aquaGYD/basic/images/1/logo_aqua_chico.jpg';
+		$this->logo = '/aquaGYD/basics/images/logo.png';
 		$this->adminemail = 'sistemas@aqua.com.ar';
 		$this->sis_id = 7;
 		$this->sis_name = "Agua del Valle";
