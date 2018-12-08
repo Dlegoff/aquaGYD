@@ -14,7 +14,7 @@ $this->title = Yii::$app->name;
 		<div class="panel-body">
 				<div class="row">
 					<div class="col-sm-2">
-			 			<img src="images/logo.jpg" width="160px" height="120px" style="float:left;padding-right: 10px;">
+			 			<img src="/aquaGYD/basic/images/logo.jpg" width="160px" height="120px" style="float:left;padding-right: 10px;">
 			 		</div>
 			 		<div class="col-sm-10">
 						<h1><i>Agua del Valle</i></h1>
