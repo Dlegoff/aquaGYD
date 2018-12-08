@@ -15,7 +15,7 @@ use yii\widgets\ActiveForm;
         <div class="panel panel-default">       
             <div class="panel-body flex-vertical-center">
                 <div class="col-sm-6 padding-0 tt-enc-obj">
-                    Nuevo Cliente
+                   <?=($this->title!='' ? Html::encode($this->title) : 'Nuevo Cliente' ) ?>
                 </div>
                 <div class="col-sm-6 padding-0" align="right">
                     <?=Html::a( 'Volver ',['index'], [ 'class' => 'btn btn-buscar', 'title' => utf8_encode('Volver')] ); ?>

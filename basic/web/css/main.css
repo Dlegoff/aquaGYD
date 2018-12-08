@@ -175,6 +175,9 @@ div.container-fluid{
 	margin:2px;
     font-size: 13px;
 }
+.btn-danger{
+    font-size: 13px;
+}
 
 .btn-mini{
     color: #3b5f4c;

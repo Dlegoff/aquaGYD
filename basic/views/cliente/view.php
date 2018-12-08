@@ -11,28 +11,49 @@ $this->params['breadcrumbs'][] = ['label' => 'Clientes', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cliente-view">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->NroCli], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->NroCli], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
-
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'NroCli',
-            'nombre',
-            'observaciones',
-            'idCuenta',
-        ],
-    ]) ?>
-
+    <div class="container-fluid">
+        <div class="panel panel-default">       
+            <div class="panel-body flex-vertical-center">
+                <div class="col-sm-8 padding-0 tt-enc-obj">
+                    Cliente Nº <?= Html::encode($this->title) ?>
+                    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+                </div>
+                <div class="col-sm-4 padding-0" align='right'>
+                     <?=Html::a( 'Volver ',['index'], [ 'class' => 'btn btn-buscar', 'title' => utf8_encode('Volver')] );?>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading panel-header-gral">
+                <h3 class="panel-title"> Datos:</h3>
+            </div>
+            <div class="panel-body">
+                <div class="container-fluid" style="margin-top:10px;">
+                            <?= DetailView::widget([
+                                'model' => $model,
+                                'attributes' => [
+                                    ['attribute' => 'NroCli', 'label' => 'Nº Cliente','contentOptions' => [ 'style' => 'text-align:center;width:7%;'] ],
+                                    ['attribute' => 'nombre', 'label' => 'Nombre','contentOptions' => [ 'style' => 'text-align:center;width:20%'] ],
+                                    ['attribute' => 'observaciones', 'label' => 'Observaciones','contentOptions' => [ 'style' => 'text-align:center;width:20%'] ],
+                                    ['attribute' => 'idCuenta', 'label' => 'Nº Cuenta','contentOptions' => [ 'style' => 'text-align:center;width:7%'] ],
+                                ],
+                            ]) ?>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">       
+            <div class="panel-body flex-vertical-center">
+                <div class="col-sm-12 padding-0" align='right'>
+                    <?= Html::a('Actualizar', ['update', 'id' => $model->NroCli], ['class' => 'btn btn-buscar']) ?>
+                    <?= Html::a('Borrar', ['delete', 'id' => $model->NroCli], [
+                        'class' => 'btn btn-danger',
+                        'data' => [
+                            'confirm' => 'Are you sure you want to delete this item?',
+                            'method' => 'post',
+                        ],
+                    ]) ?>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

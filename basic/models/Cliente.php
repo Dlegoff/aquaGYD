@@ -11,7 +11,6 @@ use Yii;
  * @property string $nombre
  * @property string $observaciones
  * @property int $idCuenta
- * @property int $idLoc
  *
  * @property Abonado $abonado
  * @property Cuentacorriente $cuenta
@@ -40,7 +39,7 @@ class Cliente extends \yii\db\ActiveRecord
     {
         return [
             [['NroCli'], 'required'],
-            [['NroCli', 'idCuenta', 'idLoc'], 'integer'],
+            [['NroCli', 'idCuenta'], 'integer'],
             [['nombre', 'observaciones'], 'string', 'max' => 30],
             [['NroCli'], 'unique'],
             [['idCuenta'], 'exist', 'skipOnError' => true, 'targetClass' => Cuentacorriente::className(), 'targetAttribute' => ['idCuenta' => 'idCuenta']],
@@ -57,7 +56,6 @@ class Cliente extends \yii\db\ActiveRecord
             'nombre' => 'Nombre',
             'observaciones' => 'Observaciones',
             'idCuenta' => 'Id Cuenta',
-            //'idLoc' => 'Id Loc',
         ];
     }
 
