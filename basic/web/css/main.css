@@ -219,6 +219,11 @@ div.container-fluid{
     text-align: center; 
 }
 
+.panel-titulo-login{
+    background: #3696e8;
+    text-align: center; 
+}
+
 .panel-titulo-inicio{
     background: #00a665;
     text-align: center; 
@@ -281,6 +286,12 @@ div.container-fluid{
 	color: black;
 	font-size: 3em;
 	font-weight: bold;
+}
+
+.tt-enc-login{
+    color: white;
+    font-size: 3em;
+    font-weight: bold;
 }
 
 .tt-enc-24{
