@@ -11,27 +11,51 @@ $this->title = 'Productos';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="producto-index">
+    <div class="container-fluid">
+        <div class="panel panel-default">       
+            <div class="panel-body flex-vertical-center">
+                <div class="col-sm-8 padding-0 tt-enc-obj">
+                    <?= Html::encode($this->title) ?>
+                     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+                </div>
+                <div class="col-sm-4 padding-0" align='right'>
+                    <?php 
+                        echo Html::a('Nuevo', ['create'], ['class' => 'btn btn-success']);
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <p>
-        <?= Html::a('Create Producto', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'idProd',
-            'tipo',
-            'stock',
-            'stockMin',
-            'precioU',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
+                        echo Html::a( 'Volver ',['//site/index'], [ 'class' => 'btn btn-buscar', 'title' => utf8_encode('Volver')] );
+                    ?>
+                </div>
+             </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading panel-header-gral">
+                <h3 class="panel-title"> Listado de Productos:</h3>
+            </div>
+            <div class="panel-body">
+                <div class="container-fluid" style="margin-top:10px;">
+                    <div class="panel-body flex-vertical-center">
+                         <div class="col-sm-12">
+                            <?= GridView::widget([
+                                'id'    => 'grillaproductos',
+                                'dataProvider' => $dataProvider,
+                                'filterModel' => $searchModel,
+                                'headerRowOptions' => ['class' => 'grilla'],
+                                'summaryOptions' => ['class' => 'hidden'],
+                                'rowOptions' => ['class' => 'grilla'],
+                                'formatter' => ['class' => 'yii\i18n\Formatter','nullDisplay' => ''],
+                                'columns' => [
+                                    ['attribute' => 'idProd', 'label' => 'Nº Producto','contentOptions' => [ 'style' => 'text-align:center;width:20%;'] ],
+                                    ['attribute' => 'tipo', 'label' => 'Tipo','contentOptions' => [ 'style' => 'text-align:center;width:20%;'] ],
+                                    ['attribute' => 'stock', 'label' => 'Stock','contentOptions' => [ 'style' => 'text-align:center;width:20%;'] ],
+                                    ['attribute' => 'stockMin', 'label' => 'Stock Min.','contentOptions' => [ 'style' => 'text-align:center;width:20%;'] ],
+                                    ['attribute' => 'precioU', 'label' => 'Precio','contentOptions' => [ 'style' => 'text-align:center;width:2%;'] ],
+                                    ['class' => 'yii\grid\ActionColumn','options' => ['style' => 'width:7.5%;']],
+                                ],
+                            ]); ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

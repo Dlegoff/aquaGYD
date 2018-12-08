@@ -10,7 +10,7 @@ use yii\widgets\ActiveForm;
 
 <div class="cliente-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+<?php $form = ActiveForm::begin(); ?>
 <div class="container-fluid">
         <div class="panel panel-default">       
             <div class="panel-body flex-vertical-center">

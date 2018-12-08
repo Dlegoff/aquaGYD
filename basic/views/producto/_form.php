@@ -9,23 +9,59 @@ use yii\widgets\ActiveForm;
 ?>
 
 <div class="producto-form">
-
-    <?php $form = ActiveForm::begin(); ?>
-
-    <?= $form->field($model, 'idProd')->textInput() ?>
-
-    <?= $form->field($model, 'tipo')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'stock')->textInput() ?>
-
-    <?= $form->field($model, 'stockMin')->textInput() ?>
-
-    <?= $form->field($model, 'precioU')->textInput() ?>
-
-    <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+<?php $form = ActiveForm::begin(); ?>
+<div class="container-fluid">
+        <div class="panel panel-default">       
+            <div class="panel-body flex-vertical-center">
+                <div class="col-sm-6 padding-0 tt-enc-obj">
+                   <?=($this->title!='' ? Html::encode($this->title) : 'Nuevo Producto' ) ?>
+                </div>
+                <div class="col-sm-6 padding-0" align="right">
+                    <?=Html::a( 'Volver ',['index'], [ 'class' => 'btn btn-buscar', 'title' => utf8_encode('Volver')] ); ?>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="container-fluid flex-vertical-center">
+                    <div class="col-sm-2 padding-0">Nº Producto:</div>
+                    <div class="col-sm-10 padding-0">
+                      <?= $form->field($model, 'idProd')->textInput()->label(false) ?>
+                  </div>
+                </div>
+                <div class="container-fluid flex-vertical-center">
+                    <div class="col-sm-2 padding-0">Tipo:</div>
+                    <div class="col-sm-10 padding-0">
+                        <?= $form->field($model, 'tipo')->textInput(['maxlength' => true])->label(false) ?>
+                    </div>
+                </div>
+                <div class="container-fluid flex-vertical-center">
+                    <div class="col-sm-2 padding-0">Stock:</div>
+                    <div class="col-sm-10 padding-0">
+                        <?= $form->field($model, 'stock')->textInput()->label(false) ?>
+                    </div>
+                </div>
+                <div class="container-fluid flex-vertical-center">
+                    <div class="col-sm-2 padding-0">Stock Min:</div>
+                    <div class="col-sm-10 padding-0">
+                        <?= $form->field($model, 'stockMin')->textInput()->label(false) ?>
+                    </div>
+                </div>
+                <div class="container-fluid flex-vertical-center">
+                    <div class="col-sm-2 padding-0">Precio:</div>
+                    <div class="col-sm-10 padding-0">
+                        <?= $form->field($model, 'precioU')->textInput()->label(false) ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="form-group" style="text-align:right">
+             <?= Html::submitButton('Guardar', ['class' => 'btn btn-success']) ?>
+            </div>
+        </div>
     </div>
-
-    <?php ActiveForm::end(); ?>
-
+</div>
+<?php ActiveForm::end(); ?>
 </div>

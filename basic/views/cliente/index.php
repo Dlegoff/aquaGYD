@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <?php 
                             echo Html::a('Nuevo', ['create'], ['class' => 'btn btn-success']);
 
-                            echo Html::a( 'Volver ',['index'], [ 'class' => 'btn btn-buscar', 'title' => utf8_encode('Volver')] );
+                            echo Html::a( 'Volver ',['//site/index'], [ 'class' => 'btn btn-buscar', 'title' => utf8_encode('Volver')] );
                         ?>
                     </div>
              </div>

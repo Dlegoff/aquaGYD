@@ -13,7 +13,6 @@ NavBar::begin(['brandLabel' => '', 'options' => ['class' => 'navbar menu-princip
                     'id' => 'menuObjeto',
                     'label' => 'Configuraciones',
                     'content' =>
-                      '<a class="list-group-item" href="' .Yii::$app->param->urlaqua. 'usuario/usuario/index"> Usuarios</a></li>'.
                       '<a class="list-group-item" href="' .Yii::$app->param->urlaqua. 'cliente/index">Clientes</a></li>'.
                       '<a class="list-group-item" href="' .Yii::$app->param->urlaqua. 'producto/index">Productos</a></li>'.
                       '<a class="list-group-item" href="' .Yii::$app->param->urlaqua. 'camion/index">Camiones</a></li>'.
@@ -32,6 +31,7 @@ NavBar::begin(['brandLabel' => '', 'options' => ['class' => 'navbar menu-princip
                     'label' => 'Segundo Menu(clave)',
                     'options' => [ 'style' => 'display:' . (!Yii::$app->user->isGuest ? 'block' : 'none') ],
                     'content' =>
+                     '<a class="list-group-item" href="' .Yii::$app->param->urlaqua. 'usuario/usuario/index"> Usuarios</a></li>'.
                       '<a class="list-group-item" href="' .Yii::$app->param->urlaqua. 'descuento/index">Descuentos</a></li>'.
                       '<a class="list-group-item" id="segundo_menu" href="#">segundo menu</a></li>'.
                       '<a class="list-group-item" id="tercer_menu" href="#">tercer menu</a></li>',
