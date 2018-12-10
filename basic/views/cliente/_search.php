@@ -14,6 +14,7 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
         'method' => 'get',
+        'id' => 'formClientes'
     ]); ?>
 
     <div class="panel panel-default">
@@ -26,7 +27,8 @@ use yii\widgets\ActiveForm;
                                 'onkeypress' => 'return justNumbers( $(this).val())',
                                 'maxlength'=>4,
                                 'style' => 'width: 100%',
-                                'id'=>'NroCli'
+                                'id'=>'NroCli',
+                                'onchange' => 'f_buscar()'
                             ]);
                      ?>
                 </div>
@@ -51,16 +53,16 @@ use yii\widgets\ActiveForm;
                             ]);
                      ?>
                 </div>
-                <div class="col-sm-5 padding-0" align="right">
-                    <?= Html::submitButton('Buscar', ['class' => 'btn btn-buscar']) ?>
-                    <?= Html::resetButton('Borrar', ['class' => 'btn btn-default']) ?>
-                </div>
             </div>
             
         </div>
     </div>
-
-    <?php ActiveForm::end(); ?>
-
+<?php ActiveForm::end(); ?>
 </div>
 </div>
+
+<script>
+ function f_buscar(){
+    $('#formClientes').submit();
+ }
+</script>
