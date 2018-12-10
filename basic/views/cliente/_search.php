@@ -21,34 +21,34 @@ use yii\widgets\ActiveForm;
         <div class="panel-body">
             <div class="container-fluid flex-vertical-center">
                 <div class="col-sm-1 padding-0">Nº Cliente:</div>
-                <div class="col-sm-1 padding-0">
+                <div class="col-sm-2 padding-0">
                     <?= Html::activeInput( 'text',$model, 'NroCli',[
                                 'class' => 'form-control controles',
                                 'onkeypress' => 'return justNumbers( $(this).val())',
                                 'maxlength'=>4,
-                                'style' => 'width: 100%',
+                                'style' => 'width: 90%',
                                 'id'=>'NroCli',
                                 'onchange' => 'f_buscar()'
                             ]);
                      ?>
                 </div>
                 <div class="col-sm-1 padding-0">Nombre:</div>
-                <div class="col-sm-2 padding-0">
+                <div class="col-sm-4 padding-0">
                      <?= Html::activeInput( 'text',$model, 'nombre',[
                                 'class' => 'form-control controles',
                                 'maxlength'=>40,
-                                'style' => 'width: 100%',
+                                'style' => 'width: 90%',
                                 'id'=>'nombre'
                             ]);
                      ?>
                 </div>
                 <div class="col-sm-1 padding-0">Nº Cuenta:</div>
-                <div class="col-sm-1 padding-0">
+                <div class="col-sm-2 padding-0">
                      <?= Html::activeInput( 'text',$model, 'idCuenta',[
                                 'class' => 'form-control controles',
                                 'onkeypress' => 'return justNumbers( $(this).val())',
                                 'maxlength'=>4,
-                                'style' => 'width: 100%',
+                                'style' => 'width: 90%',
                                 'id'=>'idCuenta'
                             ]);
                      ?>
