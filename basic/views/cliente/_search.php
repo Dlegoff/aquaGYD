@@ -15,23 +15,43 @@ use yii\widgets\ActiveForm;
         'action' => ['index'],
         'method' => 'get',
     ]); ?>
-    
+
     <div class="panel panel-default">
         <div class="panel-body">
             <div class="container-fluid flex-vertical-center">
-                <div class="col-sm-2 padding-0">Nº Cliente:</div>
+                <div class="col-sm-1 padding-0">Nº Cliente:</div>
                 <div class="col-sm-1 padding-0">
-                    <?= $form->field($model, 'NroCli')->label(false) ?>
+                    <?= Html::activeInput( 'text',$model, 'NroCli',[
+                                'class' => 'form-control controles',
+                                'onkeypress' => 'return justNumbers( $(this).val())',
+                                'maxlength'=>4,
+                                'style' => 'width: 100%',
+                                'id'=>'NroCli'
+                            ]);
+                     ?>
                 </div>
-                <div class="col-sm-2 padding-0">Nombre:</div>
+                <div class="col-sm-1 padding-0">Nombre:</div>
+                <div class="col-sm-2 padding-0">
+                     <?= Html::activeInput( 'text',$model, 'nombre',[
+                                'class' => 'form-control controles',
+                                'maxlength'=>40,
+                                'style' => 'width: 100%',
+                                'id'=>'nombre'
+                            ]);
+                     ?>
+                </div>
+                <div class="col-sm-1 padding-0">Nº Cuenta:</div>
                 <div class="col-sm-1 padding-0">
-                    <?= $form->field($model, 'nombre')->label(false) ?>
+                     <?= Html::activeInput( 'text',$model, 'idCuenta',[
+                                'class' => 'form-control controles',
+                                'onkeypress' => 'return justNumbers( $(this).val())',
+                                'maxlength'=>4,
+                                'style' => 'width: 100%',
+                                'id'=>'idCuenta'
+                            ]);
+                     ?>
                 </div>
-                <div class="col-sm-2 padding-0">Nº Cuenta:</div>
-                <div class="col-sm-1 padding-0">
-                    <?= $form->field($model, 'idCuenta')->label(false) ?>
-                </div>
-                <div class="col-sm-3 padding-0" align="right">
+                <div class="col-sm-5 padding-0" align="right">
                     <?= Html::submitButton('Buscar', ['class' => 'btn btn-buscar']) ?>
                     <?= Html::resetButton('Borrar', ['class' => 'btn btn-default']) ?>
                 </div>
