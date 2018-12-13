@@ -16,7 +16,6 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="panel-body flex-vertical-center">
                 <div class="col-sm-8 padding-0 tt-enc-obj">
                     <?= Html::encode($this->title) ?>
-                     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
                 </div>
                 <div class="col-sm-4 padding-0" align='right'>
                     <?php 
@@ -33,12 +32,13 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
             <div class="panel-body">
                 <div class="container-fluid" style="margin-top:10px;">
+                            <?php  echo $this->render('_search', ['model' => $searchModel]); ?>
                     <div class="panel-body flex-vertical-center">
                          <div class="col-sm-12">
                             <?= GridView::widget([
                                 'id'    => 'grillaproductos',
                                 'dataProvider' => $dataProvider,
-                                'filterModel' => $searchModel,
+                                //'filterModel' => $searchModel,
                                 'headerRowOptions' => ['class' => 'grilla'],
                                 'summaryOptions' => ['class' => 'hidden'],
                                 'rowOptions' => ['class' => 'grilla'],
