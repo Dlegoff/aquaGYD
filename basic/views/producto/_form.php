@@ -32,7 +32,11 @@ use yii\widgets\ActiveForm;
                 <div class="container-fluid flex-vertical-center">
                     <div class="col-sm-2 padding-0">Tipo:</div>
                     <div class="col-sm-10 padding-0">
-                        <?= $form->field($model, 'tipo')->textInput(['maxlength' => true])->label(false) ?>
+                        <?= Html::activeDropDownList( $model, 'tipo', $tipos=['bidon 20 litros'=>'Bidon 20 Litros','bidon 10 litros'=>'Bidon 10 Litros','sifon 1 litro'=>'Sifon 1 Litro'], [
+                                'class' => 'form-control',
+                                'style' => 'width: 100%'
+                            ]);
+                        ?>
                     </div>
                 </div>
                 <div class="container-fluid flex-vertical-center">

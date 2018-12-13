@@ -27,25 +27,45 @@ use yii\widgets\ActiveForm;
                 <div class="container-fluid flex-vertical-center">
                     <div class="col-sm-2 padding-0">Nº Cliente:</div>
                     <div class="col-sm-10 padding-0">
-                        <?= $form->field($model, 'NroCli')->textInput()->label(false) ?>
+                        <?= Html::activeInput( 'text',$model, 'NroCli',[
+                                'class' => 'form-control',
+                                'maxlength'=>3,
+                                'style' => 'width: 90%',
+                            ]);
+                     ?>
                     </div>
                 </div>
                 <div class="container-fluid flex-vertical-center">
                     <div class="col-sm-2 padding-0">Nombre:</div>
                     <div class="col-sm-10 padding-0">
-                        <?= $form->field($model, 'nombre')->textInput(['maxlength' => true])->label(false) ?>
+                        <?= Html::activeInput( 'text',$model, 'nombre',[
+                                'class' => 'form-control',
+                                'maxlength'=>40,
+                                'style' => 'width: 90%',
+                            ]);
+                     ?>
                     </div>
                 </div>
                 <div class="container-fluid flex-vertical-center">
                     <div class="col-sm-2 padding-0">Observaciones:</div>
                     <div class="col-sm-10 padding-0">
-                        <?= $form->field($model, 'observaciones')->textInput(['maxlength' => true])->label(false) ?>
+                         <?= Html::activeInput( 'text',$model, 'observaciones',[
+                                'class' => 'form-control',
+                                'maxlength'=>100,
+                                'style' => 'width: 90%',
+                            ]);
+                     ?>
                     </div>
                 </div>
                 <div class="container-fluid flex-vertical-center">
                     <div class="col-sm-2 padding-0">Nº Cuenta:</div>
                     <div class="col-sm-10 padding-0">
-                        <?= $form->field($model, 'idCuenta')->textInput()->label(false) ?>
+                        <?= Html::activeInput( 'text',$model, 'idCuenta',[
+                                'class' => 'form-control',
+                                'maxlength'=>3,
+                                'style' => 'width: 90%',
+                            ]);
+                     ?>
                     </div>
                 </div>
             </div>
