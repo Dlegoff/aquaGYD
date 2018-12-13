@@ -8,6 +8,7 @@ use yii\helpers\BaseUrl;
 use yii\jui\DatePicker;
 use \yii\widgets\Pjax;
 use yii\widgets\MaskedInput;
+use app\utils\utb;
 
 
 //$form = ActiveForm::begin('id'=>'formUsuarios' ]);
@@ -18,7 +19,7 @@ use yii\widgets\MaskedInput;
 		<div class="panel-body flex-vertical-center">
 			<div class="col-sm-10 padding-0 tt-enc-obj">
 				<?php 
-					print_r("Alta Usuarios:");
+					print_r("Consultas:");
 				?>
 			</div>	
 				<div class="col-sm-2 padding-0" align='right'>
@@ -47,12 +48,27 @@ use yii\widgets\MaskedInput;
 				<div class="col-sm-4 padding-0" id="ag_nom" style="font-weight: bold;"></div>
 				
 			</div>
-			<div class="container-fluid flex-vertical-center" >
-				<div class="col-sm-1 padding-0">Tipo:</div>
-				<div class="col-sm-2 padding-0">
-					
-				</div>
-			</div>
+				<?= GridView::widget([
+                                'id'    => 'grillaclientes',
+                                'dataProvider' => utb::setDataProvider($datos),
+                                //'filterModel' => $searchModel,
+                                'headerRowOptions' => ['class' => 'grilla'],
+                                'summaryOptions' => ['class' => 'hidden'],
+                                'rowOptions' => ['class' => 'grilla'],
+                                'formatter' => ['class' => 'yii\i18n\Formatter','nullDisplay' => ''],
+                                'columns' => [
+                                    //['class' => 'yii\grid\SerialColumn'],
+                                    ['attribute' => 'NroCli', 'label' => 'Nº Cliente','contentOptions' => [ 'style' => 'text-align:center;width:7%;'] ],
+                                    ['attribute' => 'nombre', 'label' => 'Nombre','contentOptions' => [ 'style' => 'text-align:left;width:20%'] ],
+                                    ['attribute' => 'observaciones', 'label' => 'Observaciones','contentOptions' => [ 'style' => 'text-align:left;width:20%'] ],
+                                    ['attribute' => 'idCuenta', 'label' => 'Nº Cuenta','contentOptions' => [ 'style' => 'text-align:center;width:7%'] ],
+                                    ['class' => 'yii\grid\ActionColumn','options' => ['style' => 'width:5%;']],
+                                ],
+                                  
+                                   //'options' => ['style' => 'max-width:20%;'], 
+                             ]); 
+                            ?>
+				
 			<div class="container-fluid flex-vertical-center">
 				<div class="col-sm-12 padding-0" align="right">
 					<?php		

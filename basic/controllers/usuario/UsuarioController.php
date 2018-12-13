@@ -4,7 +4,7 @@ namespace app\controllers\usuario;
 
 use Yii;
 use app\models\usuario\Usuario;
-
+use app\models\Cliente;
 
 class UsuarioController extends \yii\web\Controller
 {
@@ -15,9 +15,11 @@ class UsuarioController extends \yii\web\Controller
 		
 	public function actionIndex()
 	{	
-		//$modelUsuario=new Usuario();
+		$modelUsuario=new Usuario();
+		$modelCliente=new Cliente();
+		$datos=$modelUsuario->getClientes();
 		
-		return $this->render('//usuario/alta/index');
+		return $this->render('//usuario/alta/index',['model'=>$modelUsuario,'datos'=>$datos]);
 		/*,['modelUsuario'=>$modelUsuario]);*/
 	}
 	

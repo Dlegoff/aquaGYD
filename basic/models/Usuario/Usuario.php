@@ -19,4 +19,11 @@ class Usuario extends \yii\db\ActiveRecord
          
 		];
     }*/
+
+    public function getClientes(){
+  		$result=[];
+    	$sql="select * from cliente";
+    	$result=Yii::$app->db->createCommand( $sql )->queryAll();
+    	return $result;
+    }
 }
