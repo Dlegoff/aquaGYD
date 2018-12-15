@@ -39,7 +39,7 @@ class Cliente extends \yii\db\ActiveRecord
     {
         return [
             [['NroCli'], 'required'],
-            [['NroCli', 'idCuenta'], 'integer'],
+            [['NroCli', 'idCuenta','tipocli'], 'integer'],
             [['nombre', 'observaciones'], 'string', 'max' => 30],
             [['NroCli'], 'unique'],
             [['idCuenta'], 'exist', 'skipOnError' => true, 'targetClass' => Cuentacorriente::className(), 'targetAttribute' => ['idCuenta' => 'idCuenta']],
@@ -56,6 +56,7 @@ class Cliente extends \yii\db\ActiveRecord
             'nombre' => 'Nombre',
             'observaciones' => 'Observaciones',
             'idCuenta' => 'Id Cuenta',
+            'tipocli' => 'Tipo',
         ];
     }
 
@@ -73,6 +74,11 @@ class Cliente extends \yii\db\ActiveRecord
     public function getCuenta()
     {
         return $this->hasOne(Cuentacorriente::className(), ['idCuenta' => 'idCuenta']);
+    }
+
+    public function getClienteTipo()
+    {
+        return $this->hasOne(ClienteTipo::className(), ['tipocli' => 'codctipo']);
     }
 
     /**

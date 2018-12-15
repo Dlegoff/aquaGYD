@@ -69,6 +69,18 @@ use yii\widgets\ActiveForm;
                     </div>
                 </div>
             </div>
+            <div class="container-fluid flex-vertical-center">
+                    <div class="col-sm-2 padding-0">Tipo:</div>
+                    <div class="col-sm-10 padding-0">
+                        <?= Html::activeInput( 'text',$model, 'tipocli',[
+                                'class' => 'form-control',
+                                'maxlength'=>3,
+                                'style' => 'width: 90%',
+                            ]);
+                     ?>
+                    </div>
+                </div>
+            </div>
         </div>
     <div class="panel panel-default">
         <div class="panel-body">

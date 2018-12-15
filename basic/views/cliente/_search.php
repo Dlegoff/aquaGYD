@@ -42,16 +42,13 @@ use yii\widgets\ActiveForm;
                             ]);
                      ?>
                 </div>
-                <div class="col-sm-1 padding-0">Nº Cuenta:</div>
+                <div class="col-sm-1 padding-0">Tipo:</div>
                 <div class="col-sm-2 padding-0">
-                     <?= Html::activeInput( 'text',$model, 'idCuenta',[
+                   <?= Html::activeDropDownList( $model, 'tipo', $tipos=['bidon 20 litros'=>'Bidon 20 Litros','bidon 10 litros'=>'Bidon 10 Litros','sifon 1 litro'=>'Sifon 1 Litro'], [
                                 'class' => 'form-control controles',
-                                'onkeypress' => 'return justNumbers( $(this).val())',
-                                'maxlength'=>4,
-                                'style' => 'width: 90%',
-                                'id'=>'idCuenta'
+                                'style' => 'width: 100%'
                             ]);
-                     ?>
+                        ?>
                 </div>
             </div>
             
