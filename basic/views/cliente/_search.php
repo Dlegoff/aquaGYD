@@ -38,15 +38,17 @@ use yii\widgets\ActiveForm;
                                 'class' => 'form-control controles',
                                 'maxlength'=>40,
                                 'style' => 'width: 90%',
-                                'id'=>'nombre'
+                                'id'=>'nombre',
+                                 'onchange' => 'f_buscar()'
                             ]);
                      ?>
                 </div>
                 <div class="col-sm-1 padding-0">Tipo:</div>
                 <div class="col-sm-2 padding-0">
-                   <?= Html::activeDropDownList( $model, 'tipo', $tipos=['bidon 20 litros'=>'Bidon 20 Litros','bidon 10 litros'=>'Bidon 10 Litros','sifon 1 litro'=>'Sifon 1 Litro'], [
+                   <?= Html::activeDropDownList( $model, 'tipocli',$tipos/*utb::getAux('cliente_tipo', 'codctipo', 'nombre', 0, 'codctipo=' . $model->tipocli)*/, [
                                 'class' => 'form-control controles',
-                                'style' => 'width: 100%'
+                                'style' => 'width: 100%',
+                                 'onchange' => 'f_buscar()'
                             ]);
                         ?>
                 </div>

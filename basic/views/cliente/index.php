@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
             <div class="panel-body">
                 <div class="container-fluid" style="margin-top:10px;">
-                    <?php  echo $this->render('_search', ['model' => $searchModel]); ?>
+                    <?php  echo $this->render('_search', ['model' => $searchModel,'tipos'=>$tipos]); ?>
                     <div class="panel-body flex-vertical-center">
                          <div class="col-sm-12">
                             <?= GridView::widget([
@@ -50,6 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     ['attribute' => 'nombre', 'label' => 'Nombre','contentOptions' => [ 'style' => 'text-align:left;width:20%'] ],
                                     ['attribute' => 'observaciones', 'label' => 'Observaciones','contentOptions' => [ 'style' => 'text-align:left;width:20%'] ],
                                     ['attribute' => 'idCuenta', 'label' => 'Nº Cuenta','contentOptions' => [ 'style' => 'text-align:center;width:7%'] ],
+                                    ['attribute' => 'tipocli', 'label' => 'Tipo','contentOptions' => [ 'style' => 'text-align:center;width:7%'] ],
                                     ['class' => 'yii\grid\ActionColumn','options' => ['style' => 'width:5%;']],
                                 ],
                                   

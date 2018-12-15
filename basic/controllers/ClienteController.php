@@ -8,6 +8,8 @@ use app\models\ClienteBuscar;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\utils\utb;
+
 
 /**
  * ClienteController implements the CRUD actions for Cliente model.
@@ -35,12 +37,15 @@ class ClienteController extends Controller
      */
     public function actionIndex()
     {
+        $tipos=[];
         $searchModel = new ClienteBuscar();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $tipos=utb::setCombo(Yii::$app->db->createCommand('select codctipo,nombre from cliente_tipo')->queryAll(),'codctipo');
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'tipos' => $tipos
         ]);
     }
 
