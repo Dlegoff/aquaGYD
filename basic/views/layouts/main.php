@@ -87,10 +87,10 @@ $base = Yii::$app->request->baseUrl.'/index.php?r=';
               <!--Copyright-->
             <div class="footer-copyright" style="color: rgb(18, 31, 129);">
                 <div class="row flex-vertical-center">
-                    <div class="col-sm-2">
-                        <b style="margin-left: 1%"> Taller de Integracion </b>
+                    <div class="col-sm-6">
+                        <b style="margin-left: 1%">© Todos los derechos reservados</b>
                     </div>
-                    <div class="col-sm-8 text-center">  
+                    <div class="col-sm-4 text-center">  
                        <?php if ( !Yii::$app->user->isGuest ) { ?>
                         <span style="margin-left: 2%">Usuario: <b> <?= Yii::$app->user->identity->nombre; ?>  </b>  </span>
                     <?php } ?>
