@@ -16,13 +16,13 @@ $this->title = Yii::$app->name;
     <div class="panel panel-default tt-enc-13">		
 		<div class="panel-body">
 			<div class="row">
-		 		<div class="col-sm-12">
-					<h1><p>Sistema desarrollado por aquaGYD</p></h1>
+		 		<div class="col-sm-12" align="center">
+					<h1><p>Software desarrollado por aquaGYD</p></h1>
 	 			</div>
 			</div>
 			<div class="row">
-				<div class="col-sm-12">
-					<h1><p>Info de la Empresa....</p></h1>
+				<div class="col-sm-12" align="center">
+					<h1><p>Sistema de Gestion y Distribución</p></h1>
 				</div>
 			</div>
 		</div>
