@@ -35,7 +35,7 @@ $base = Yii::$app->request->baseUrl.'/index.php?r=';
 ?>
 
     <div class="container-fluid">
-        <div class="container align-bottom" style="background: #fffdec;border-bottom: 5px solid rgb(18, 31, 129);padding: 10px;">
+        <div class="container align-bottom" style="background: #ffffff;border-bottom: 5px solid rgb(18, 31, 129);padding: 10px;">
             <div class="col-sm-1"> <?= Html::a('<img src="/aquaGYD/basic/images/logo.jpg">', ['/site/index']);?> </div>
             <div class="col-sm-4 hidden-xs">
                 <small style="color: #11abe1;font-size: 119%;">
