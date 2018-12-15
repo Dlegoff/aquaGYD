@@ -395,4 +395,6 @@ hr{
 
 .fondo-index{
     background-image: url("/aquaGYD/basic/images/fondo.png");
+    background-position: 50%;
+    height: 426px;
 }

@@ -20,11 +20,7 @@ $this->title = Yii::$app->name;
 					<h1><p>Software desarrollado por aquaGYD</p></h1>
 	 			</div>
 			</div>
-			<div class="row">
-				<div class="col-sm-12" align="center">
-					<h1><p>Sistema de Gestion y Distribución</p></h1>
-				</div>
-			</div>
+			
 		</div>
 	</div>
 </div>
