@@ -47,7 +47,7 @@ body{
 }
 
 .body-principal{
-    background:rgb(173, 172, 169);
+    background: rgb(54, 150, 232);
     padding: 10px;
     height: 100%;
     min-height: 100%;
@@ -78,7 +78,7 @@ div.container-fluid{
 }
 
 .menu-principal{
-	background-color: #1b231f;
+	background-color: #000000;
     padding: 0px;
 }
 
@@ -94,7 +94,7 @@ div.container-fluid{
 }
 
 .menu-principal .panel-heading{
-    background: #272d2a;
+    background: #000000;
     border-bottom: 1px solid #ddd;
     height: 35px;
     font-weight: bold;
@@ -112,7 +112,7 @@ div.container-fluid{
 }
 
 .menu-principal .list-group-item{
-    background: #000000;
+    background: #ffffff;
     border: 0px;
     color: #3696e8;
     border-top-left-radius: 0px;
@@ -124,7 +124,7 @@ div.container-fluid{
 }
 
 .menu-principal .list-group-item:hover{
-    color: #89c1ab !important;
+    color: #337ab7 !important;
     font-weight: bold;
     background: #272d2a !important;
 }
@@ -154,10 +154,11 @@ div.container-fluid{
 }
 
 .btn-accesos{
-    border-color: #c6f5e3;
-    color: #c6f5e3;
-	padding:5px 10px;
-	margin:2px;
+    border-color: #b1d3f1;
+    color: #b1d3f1;
+    padding: 5px 10px;
+    background-color: #272d2a;
+    margin: 2px;
 }
 
 .btn-ancho{
