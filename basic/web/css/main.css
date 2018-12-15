@@ -121,6 +121,7 @@ div.container-fluid{
     border-bottom-left-radius: 0px;
     padding: 5px 15px;
     font-size: 14px;
+    font-weight: bold;
 }
 
 .menu-principal .list-group-item:hover{
@@ -154,11 +155,12 @@ div.container-fluid{
 }
 
 .btn-accesos{
-    border-color: #b1d3f1;
-    color: #b1d3f1;
+    border-color: #000000;
+    color: #47aaff;
     padding: 5px 10px;
-    background-color: #272d2a;
+    background-color: #000000;
     margin: 2px;
+    font-weight: bold;
 }
 
 .btn-ancho{
