@@ -11,27 +11,28 @@ NavBar::begin(['brandLabel' => '', 'options' => ['class' => 'navbar menu-princip
             'items' => [
                 [
                     'id' => 'menuObjeto',
-                    'label' => 'Configuraciones',
+                    'label' => 'Operaciones',
                     'content' =>
-                      '<a class="list-group-item" href="' .Yii::$app->param->urlaqua. 'cliente/index">Clientes</a></li>'.
-                      '<a class="list-group-item" href="' .Yii::$app->param->urlaqua. 'producto/index">Productos</a></li>'.
-                      '<a class="list-group-item" href="' .Yii::$app->param->urlaqua. 'camion/index">Camiones</a></li>'.
-                      '<a class="list-group-item" href="' .Yii::$app->param->urlaqua. 'dispenser/index">Dispenser</a></li>'.
-                      '<a class="list-group-item" href="' .Yii::$app->param->urlaqua. 'domestico/index">Domesticos</a></li>'.
-                      '<a class="list-group-item" href="' .Yii::$app->param->urlaqua. 'localidad/index">Localidades</a></li>'.
-                      '<a class="list-group-item" href="' .Yii::$app->param->urlaqua. 'mantenimiento/index">Mantenimientos</a></li>'.
-                      '<a class="list-group-item" href="' .Yii::$app->param->urlaqua. 'repartidor/index">Empleados</a></li>'.
-                      '<a class="list-group-item" href="' .Yii::$app->param->urlaqua. 'reparto/index">Repartos</a></li>'.
-                      '<a class="list-group-item" href="' .Yii::$app->param->urlaqua. 'revendedor/index">Revendedores</a></li>'.
-                      '<a class="list-group-item" href="#">sexto menu</a></li>',
+                    '<a class="list-group-item" href="' .Yii::$app->param->urlaqua. 'usuario/usuario/index"> Altas</a></li>'.
+                      '<a class="list-group-item hide" href="' .Yii::$app->param->urlaqua. 'cliente/index">Clientes</a></li>'.
+                      '<a class="list-group-item hide" href="' .Yii::$app->param->urlaqua. 'producto/index">Productos</a></li>'.
+                      '<a class="list-group-item hide" href="' .Yii::$app->param->urlaqua. 'camion/index">Camiones</a></li>'.
+                      '<a class="list-group-item hide" href="' .Yii::$app->param->urlaqua. 'dispenser/index">Dispenser</a></li>'.
+                      '<a class="list-group-item hide" href="' .Yii::$app->param->urlaqua. 'domestico/index">Domesticos</a></li>'.
+                      '<a class="list-group-item hide" href="' .Yii::$app->param->urlaqua. 'localidad/index">Localidades</a></li>'.
+                      '<a class="list-group-item hide" href="' .Yii::$app->param->urlaqua. 'mantenimiento/index">Mantenimientos</a></li>'.
+                      '<a class="list-group-item hide" href="' .Yii::$app->param->urlaqua. 'repartidor/index">Empleados</a></li>'.
+                      '<a class="list-group-item hide" href="' .Yii::$app->param->urlaqua. 'reparto/index">Repartos</a></li>'.
+                      '<a class="list-group-item hide" href="' .Yii::$app->param->urlaqua. 'revendedor/index">Revendedores</a></li>'.
+                      '<a class="list-group-item hide" href="#">sexto menu</a></li>',
                       'contentOptions' => ['class' => 'in']
                 ],
                 [
-                    'id' => 'Operaciones',
+                    'id' => 'Configuraciones',
                     'label' => 'Segundo Menu(clave)',
                     'options' => [ 'style' => 'display:' . (!Yii::$app->user->isGuest ? 'block' : 'none') ],
                     'content' =>
-                     '<a class="list-group-item" href="' .Yii::$app->param->urlaqua. 'usuario/usuario/index"> Altas</a></li>'.
+                     
                       '<a class="list-group-item" href="' .Yii::$app->param->urlaqua. 'descuento/index">Descuentos</a></li>'.
                       '<a class="list-group-item" id="segundo_menu" href="#">segundo menu</a></li>'.
                       '<a class="list-group-item" id="tercer_menu" href="#">tercer menu</a></li>',
