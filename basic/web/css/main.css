@@ -208,13 +208,13 @@ div.container-fluid{
 
 .panel-body{
     padding: 15px;
-	color: #121f81;
+	color: #000000;
 }
 
 .panel-default{
-    border-color: #3696e8;
+    border-color: #ffffff;
     margin-bottom: 10px;
-    background-color: #b1d3f1;
+    background-color: #ffffff;
     font-size: 13px;
 }
 
