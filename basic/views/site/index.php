@@ -14,7 +14,7 @@ $this->title = Yii::$app->name;
         </div>
     </div>
     <div class="panel panel-default tt-enc-13">		
-		<div class="panel-body">
+		<div class="panel-body fondo-index">
 			<div class="row">
 		 		<div class="col-sm-12" align="center">
 					<h1><p>Software desarrollado por aquaGYD</p></h1>
