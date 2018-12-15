@@ -174,10 +174,10 @@ div.container-fluid{
     border-color: #428bca;
     color: #fff;
 	margin:2px;
-    font-size: 13px;
+    font-size: 14px;
 }
 .btn-danger{
-    font-size: 13px;
+    font-size: 14px;
 }
 
 .btn-mini{
@@ -209,7 +209,7 @@ div.container-fluid{
 }
 
 .panel-default{
-    border-color: black;
+    border-color: #3696e8;
     margin-bottom: 10px;
     background-color: #b1d3f1;
     font-size: 13px;
