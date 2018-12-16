@@ -36,12 +36,10 @@ $base = Yii::$app->request->baseUrl.'/index.php?r=';
 
     <div class="container-fluid">
         <div class="container align-bottom" style="background: #ffffff;border-bottom: 5px solid rgb(18, 31, 129);padding: 10px;">
-            <div class="col-sm-1"> <?= Html::a('<img src="/aquaGYD/basic/images/logo.jpg">', ['/site/index']);?> </div>
+            <span> <?= Html::a('<img src="/aquaGYD/basic/images/logo.jpg">', ['/site/index']);?> </span>
             <div class="col-sm-4 hidden-xs">
-                <small style="color: #11abe1;font-size: 119%;">
-                   <span>Agua del Valle</span><br/>
-                    <span>Juan Báez 26</span><br/>
-                    <span>Paraná - Entre Ríos</span>
+                <small style="color: #11abe1;">
+                  <h1><b style="padding: 0px">aquaGYD</b></h1>
                 </small>    
             </div>
             
