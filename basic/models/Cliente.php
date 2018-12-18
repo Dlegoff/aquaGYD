@@ -63,6 +63,10 @@ class Cliente extends \yii\db\ActiveRecord
         ];
     }
 
+    public function __construct(){
+        $this->tipocli=0;
+    }
+
     /**
      * @return \yii\db\ActiveQuery
      */

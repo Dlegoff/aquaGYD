@@ -76,6 +76,12 @@ use app\utils\utb;
 				</div>
 
 			</div>
+			<div class="container-fluid flex-vertical-center">
+				<div class="col-sm-4">
+					<?=Html::a( 'Tipo Clientes ',['//clientetipo/index'], [ 'class' => 'btn boton-personalizado btn-block', 'title' => utf8_encode('Volver')] ); ?>
+				</div>
+
+			</div>
 		</div>
 	</div>
 </div>
