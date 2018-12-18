@@ -18,7 +18,7 @@ class ClienteBuscar extends Cliente
     public function rules()
     {
         return [
-            [['NroCli', 'idCuenta','tipocli'], 'integer'],
+            [['NroCli', 'idCuenta', 'tipocli'], 'integer'],
             [['nombre', 'observaciones'], 'safe'],
         ];
     }
@@ -47,9 +47,6 @@ class ClienteBuscar extends Cliente
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
-            'pagination'=> [
-                'pageSize'=>10
-            ]
         ]);
 
         $this->load($params);

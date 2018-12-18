@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-
+use \yii\widgets\Pjax;
 /* @var $this yii\web\View */
 /* @var $model app\models\ClienteBuscar */
 /* @var $form yii\widgets\ActiveForm */
@@ -48,7 +48,8 @@ use yii\widgets\ActiveForm;
                    <?= Html::activeDropDownList( $model, 'tipocli',$tipos/*utb::getAux('cliente_tipo', 'codctipo', 'nombre', 0, 'codctipo=' . $model->tipocli)*/, [
                                 'class' => 'form-control controles',
                                 'style' => 'width: 100%',
-                                 'onchange' => 'f_buscar()'
+                                'id' => 'tipocli',
+                                'onchange' => 'f_buscar()'
                             ]);
                         ?>
                 </div>
@@ -62,6 +63,7 @@ use yii\widgets\ActiveForm;
 
 <script>
  function f_buscar(){
+
     $('#formClientes').submit();
  }
 </script>

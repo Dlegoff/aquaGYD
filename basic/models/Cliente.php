@@ -11,9 +11,11 @@ use Yii;
  * @property string $nombre
  * @property string $observaciones
  * @property int $idCuenta
+ * @property int $tipocli
  *
  * @property Abonado $abonado
  * @property Cuentacorriente $cuenta
+ * @property ClienteTipo $tipocli0
  * @property ClienteLoc[] $clienteLocs
  * @property Localidad[] $locs
  * @property Domestico $domestico
@@ -38,11 +40,12 @@ class Cliente extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['NroCli'], 'required'],
-            [['NroCli', 'idCuenta','tipocli'], 'integer'],
+            [['NroCli', 'tipocli'], 'required'],
+            [['NroCli', 'idCuenta', 'tipocli'], 'integer'],
             [['nombre', 'observaciones'], 'string', 'max' => 30],
             [['NroCli'], 'unique'],
             [['idCuenta'], 'exist', 'skipOnError' => true, 'targetClass' => Cuentacorriente::className(), 'targetAttribute' => ['idCuenta' => 'idCuenta']],
+            [['tipocli'], 'exist', 'skipOnError' => true, 'targetClass' => ClienteTipo::className(), 'targetAttribute' => ['tipocli' => 'codctipo']],
         ];
     }
 
@@ -56,7 +59,7 @@ class Cliente extends \yii\db\ActiveRecord
             'nombre' => 'Nombre',
             'observaciones' => 'Observaciones',
             'idCuenta' => 'Id Cuenta',
-            'tipocli' => 'Tipo',
+            'tipocli' => 'Tipocli',
         ];
     }
 
@@ -76,9 +79,12 @@ class Cliente extends \yii\db\ActiveRecord
         return $this->hasOne(Cuentacorriente::className(), ['idCuenta' => 'idCuenta']);
     }
 
-    public function getClienteTipo()
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTipocli0()
     {
-        return $this->hasOne(ClienteTipo::className(), ['tipocli' => 'codctipo']);
+        return $this->hasOne(ClienteTipo::className(), ['codctipo' => 'tipocli']);
     }
 
     /**
@@ -92,10 +98,10 @@ class Cliente extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    /*public function getLocs()
+    public function getLocs()
     {
         return $this->hasMany(Localidad::className(), ['idLoc' => 'idLoc'])->viaTable('cliente_loc', ['nroCli' => 'NroCli']);
-    }*/
+    }
 
     /**
      * @return \yii\db\ActiveQuery
@@ -135,5 +141,14 @@ class Cliente extends \yii\db\ActiveRecord
     public function getTelefonos()
     {
         return $this->hasMany(Telefono::className(), ['NroCli' => 'NroCli']);
+    }
+
+     public function getClientes(){
+        $result=Yii::$app->db->createCommand("select c.NroCli, c.idCuenta, t.nombre as tipo,tipocli, c.nombre,c.observaciones from cliente c left join cliente_tipo t on (c.tipocli=t.codctipo)")->queryAll();
+        return $result;
+    }
+
+    public function getTipoClientes(){
+        return Yii::$app->db->createCommand('select codctipo,nombre from cliente_tipo')->queryAll();
     }
 }

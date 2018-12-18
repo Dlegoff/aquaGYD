@@ -10,6 +10,8 @@ use Yii;
  * @property int $codctipo
  * @property string $nombre
  * @property string $fechamod
+ *
+ * @property Cliente[] $clientes
  */
 class ClienteTipo extends \yii\db\ActiveRecord
 {
@@ -45,5 +47,13 @@ class ClienteTipo extends \yii\db\ActiveRecord
             'nombre' => 'Nombre',
             'fechamod' => 'Fechamod',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getClientes()
+    {
+        return $this->hasMany(Cliente::className(), ['tipocli' => 'codctipo']);
     }
 }

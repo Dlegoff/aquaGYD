@@ -2,7 +2,8 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-
+use app\utils\utb;
+use \yii\widgets\Pjax;
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\ClienteBuscar */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -46,11 +47,11 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'formatter' => ['class' => 'yii\i18n\Formatter','nullDisplay' => ''],
                                 'columns' => [
                                     //['class' => 'yii\grid\SerialColumn'],
-                                    ['attribute' => 'NroCli', 'label' => 'Nº Cliente','contentOptions' => [ 'style' => 'text-align:center;width:7%;'] ],
+                                    ['attribute' => 'NroCli', 'label' => 'Nº Cliente','contentOptions' => [ 'style' => 'text-align:center;width:1%;'] ],
                                     ['attribute' => 'nombre', 'label' => 'Nombre','contentOptions' => [ 'style' => 'text-align:left;width:20%'] ],
                                     ['attribute' => 'observaciones', 'label' => 'Observaciones','contentOptions' => [ 'style' => 'text-align:left;width:20%'] ],
                                     ['attribute' => 'idCuenta', 'label' => 'Nº Cuenta','contentOptions' => [ 'style' => 'text-align:center;width:7%'] ],
-                                    ['attribute' => 'tipocli', 'label' => 'Tipo','contentOptions' => [ 'style' => 'text-align:center;width:7%'] ],
+                                    ['attribute' => 'tipocli','label' => 'Tipo','contentOptions' => [ 'style' => 'text-align:center;width:7%'] ],
                                     ['class' => 'yii\grid\ActionColumn','options' => ['style' => 'width:5%;']],
                                 ],
                                   
