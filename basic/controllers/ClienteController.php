@@ -71,13 +71,14 @@ class ClienteController extends Controller
     public function actionCreate()
     {
         $model = new Cliente();
-
+        $tipos=utb::setCombo($model->getTipoClientes(),'codctipo');
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->NroCli]);
         }
 
         return $this->render('create', [
             'model' => $model,
+            'tipos' => $tipos
         ]);
     }
 

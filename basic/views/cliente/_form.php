@@ -26,55 +26,51 @@ use yii\widgets\ActiveForm;
             <div class="panel-body">
                 <div class="container-fluid flex-vertical-center">
                     <div class="col-sm-2 padding-0">Nº Cliente:</div>
-                    <div class="col-sm-10 padding-0">
+                    <div class="col-sm-1 padding-0">
                         <?= Html::activeInput( 'text',$model, 'NroCli',[
                                 'class' => 'form-control',
                                 'maxlength'=>3,
                                 'style' => 'width: 90%',
+                                'readonly' => true
                             ]);
                      ?>
+                    </div>
+                    <div class="col-sm-1 padding-0">Nº Cuenta:</div>
+                    <div class="col-sm-1 padding-0">
+                         <?= Html::activeInput( 'text',$model, 'idCuenta',[
+                                    'class' => 'form-control controles',
+                                    'maxlength'=>3,
+                                    'style' => 'width: 90%',
+                                ]);
+                         ?>
                     </div>
                 </div>
                 <div class="container-fluid flex-vertical-center">
                     <div class="col-sm-2 padding-0">Nombre:</div>
-                    <div class="col-sm-10 padding-0">
+                    <div class="col-sm-4 padding-0">
                         <?= Html::activeInput( 'text',$model, 'nombre',[
-                                'class' => 'form-control',
+                                'class' => 'form-control controles',
                                 'maxlength'=>40,
                                 'style' => 'width: 90%',
                             ]);
                      ?>
+                    </div>
+                    <div class="col-sm-1 padding-0">Tipo:</div>
+                    <div class="col-sm-4 padding-0">
+                    <?= Html::activeDropDownList( $model, 'tipocli',$tipos/*utb::getAux('cliente_tipo', 'codctipo', 'nombre', 0, 'codctipo=' . $model->tipocli)*/, [
+                                'class' => 'form-control controles',
+                                'style' => 'width: 40%',
+                                'id' => 'tipocli'
+                            ]);
+                        ?>
                     </div>
                 </div>
                 <div class="container-fluid flex-vertical-center">
                     <div class="col-sm-2 padding-0">Observaciones:</div>
                     <div class="col-sm-10 padding-0">
                          <?= Html::activeInput( 'text',$model, 'observaciones',[
-                                'class' => 'form-control',
+                                'class' => 'form-control controles',
                                 'maxlength'=>100,
-                                'style' => 'width: 90%',
-                            ]);
-                     ?>
-                    </div>
-                </div>
-                <div class="container-fluid flex-vertical-center">
-                    <div class="col-sm-2 padding-0">Nº Cuenta:</div>
-                    <div class="col-sm-10 padding-0">
-                        <?= Html::activeInput( 'text',$model, 'idCuenta',[
-                                'class' => 'form-control',
-                                'maxlength'=>3,
-                                'style' => 'width: 90%',
-                            ]);
-                     ?>
-                    </div>
-                </div>
-            </div>
-            <div class="container-fluid flex-vertical-center">
-                    <div class="col-sm-2 padding-0">Tipo:</div>
-                    <div class="col-sm-10 padding-0">
-                        <?= Html::activeInput( 'text',$model, 'tipocli',[
-                                'class' => 'form-control',
-                                'maxlength'=>3,
                                 'style' => 'width: 90%',
                             ]);
                      ?>
