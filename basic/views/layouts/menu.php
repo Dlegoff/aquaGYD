@@ -14,6 +14,7 @@ NavBar::begin(['brandLabel' => '', 'options' => ['class' => 'navbar menu-princip
                     'label' => 'Operaciones',
                     'content' =>
                       '<a class="list-group-item" href="' .Yii::$app->param->urlaqua. 'usuario/usuario/index"> Altas</a></li>'.
+                      '<a class="list-group-item" href="' .Yii::$app->param->urlaqua. 'consultas/index"> Cuenta Corriente</a></li>'.
                       '<a class="list-group-item hide" href="' .Yii::$app->param->urlaqua. 'cliente/index">Clientes</a></li>'.
                       '<a class="list-group-item hide" href="' .Yii::$app->param->urlaqua. 'producto/index">Productos</a></li>'.
                       '<a class="list-group-item hide" href="' .Yii::$app->param->urlaqua. 'camion/index">Camiones</a></li>'.
@@ -42,7 +43,6 @@ NavBar::begin(['brandLabel' => '', 'options' => ['class' => 'navbar menu-princip
                   'id' => 'menuConsultas',
                     'label' => 'Consultas',
                     'content' =>
-                      '<a class="list-group-item" href="' .Yii::$app->param->urlaqua. 'consultas/index"> Ventas</a></li>'.
                       '<a class="list-group-item" href="#"> primer menu</a></li>'.
                       '<a class="list-group-item" href="#"> segundo menu</a></li>'.
                       '<a class="list-group-item" href="#"> tercer menu</a></li>'.
