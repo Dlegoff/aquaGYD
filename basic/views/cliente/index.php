@@ -51,7 +51,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     ['attribute' => 'nombre', 'label' => 'Nombre','contentOptions' => [ 'style' => 'text-align:left;width:20%'] ],
                                     ['attribute' => 'observaciones', 'label' => 'Observaciones','contentOptions' => [ 'style' => 'text-align:left;width:20%'] ],
                                     ['attribute' => 'idCuenta', 'label' => 'Nº Cuenta','contentOptions' => [ 'style' => 'text-align:center;width:7%'] ],
-                                    ['attribute' => 'tipocli','label' => 'Tipo','contentOptions' => [ 'style' => 'text-align:center;width:7%'] ],
+                                    ['attribute' => 'tipocli','value'=>function($model) use ($tipos){ return $tipos[$model->tipocli]; },'label' => 'Tipo','contentOptions' => [ 'style' => 'text-align:center;width:7%'] ],
                                     ['class' => 'yii\grid\ActionColumn','options' => ['style' => 'width:5%;']],
                                 ],
                                   

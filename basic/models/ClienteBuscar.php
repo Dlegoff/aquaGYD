@@ -66,6 +66,7 @@ class ClienteBuscar extends Cliente
 
         $query->andFilterWhere(['like', 'nombre', $this->nombre])
             ->andFilterWhere(['like', 'observaciones', $this->observaciones]);
+        $query->leftJoin('cliente_tipo', 'tipocli = codctipo');
 
         return $dataProvider;
     }
