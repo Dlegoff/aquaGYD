@@ -57,10 +57,11 @@ use yii\widgets\ActiveForm;
                     </div>
                     <div class="col-sm-1 padding-0">Tipo:</div>
                     <div class="col-sm-4 padding-0">
-                    <?= Html::activeDropDownList( $model, 'tipocli',$tipos/*utb::getAux('cliente_tipo', 'codctipo', 'nombre', 0, 'codctipo=' . $model->tipocli)*/, [
+                    <?= Html::activeDropDownList( $model, 'tipocli',$tipos, [
                                 'class' => 'form-control controles',
                                 'style' => 'width: 40%',
-                                'id' => 'tipocli'
+                                'id' => 'tipocli',
+                                'onchange' => 'f_mostrarDivs()'
                             ]);
                         ?>
                     </div>
@@ -73,11 +74,77 @@ use yii\widgets\ActiveForm;
                                 'maxlength'=>100,
                                 'style' => 'width: 90%',
                             ]);
-                     ?>
+                         ?>
                     </div>
                 </div>
             </div>
+            <hr>
+            <div class="panel-body hide" id="DivAbonado">
+                <div class="container-fluid flex-vertical-center">
+                    <div class="col-sm-2 padding-0">CUIT:</div>
+                    <div class="col-sm-2 padding-0">
+                         <?= Html::Input( 'text','cuit', null,[
+                                'class' => 'form-control controles',
+                                'maxlength'=>100,
+                                'style' => 'width: 90%',
+                            ]);
+                         ?>
+                    </div>
+                    
+                    <div class="col-sm-2 padding-0">Email:</div>
+                    <div class="col-sm-2 padding-0">
+                         <?= Html::Input( 'text','email', null,[
+                                'class' => 'form-control controles',
+                                'maxlength'=>100,
+                                'style' => 'width: 90%',
+                            ]);
+                         ?>
+                    </div>
+
+                    <div class="col-sm-2 padding-0">Cond. IVA:</div>
+                    <div class="col-sm-2 padding-0">
+                         <?= Html::Input( 'text','condiva', null,[
+                                'class' => 'form-control controles',
+                                'maxlength'=>100,
+                                'style' => 'width: 90%',
+                            ]);
+                         ?>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="panel-body hide" id="DivRevendedor">
+                <div class="container-fluid flex-vertical-center">
+                    <div class="col-sm-2 padding-0">Email:</div>
+                    <div class="col-sm-2 padding-0">
+                         <?= Html::Input( 'text','email', null,[
+                                'class' => 'form-control controles',
+                                'maxlength'=>100,
+                                'style' => 'width: 90%',
+                            ]);
+                         ?>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="panel-body hide" id="DivDomestico">
+                <div class="container-fluid flex-vertical-center">
+                    <div class="col-sm-2 padding-0">DNI:</div>
+                    <div class="col-sm-2 padding-0">
+                         <?= Html::Input( 'text','dni', null,[
+                                'class' => 'form-control controles',
+                                'maxlength'=>100,
+                                'style' => 'width: 90%',
+                            ]);
+                         ?>
+                    </div>
+                    
+                </div>
+            </div>
         </div>
+    </div>
     <div class="panel panel-default">
         <div class="panel-body">
             <div class="form-group" style="text-align:right">
@@ -89,3 +156,32 @@ use yii\widgets\ActiveForm;
     <?php ActiveForm::end(); ?>
 
 </div>
+
+<script>
+    function f_mostrarDivs(){
+
+        if($('#tipocli').val() == 1){
+            $('#DivAbonado').removeClass('hide');
+            $('#DivDomestico').addClass('hide');
+            $('#DivRevendedor').addClass('hide');
+        }
+
+        if($('#tipocli').val() == 2){
+            $('#DivDomestico').removeClass('hide');
+            $('#DivAbonado').addClass('hide');
+            $('#DivRevendedor').addClass('hide');
+        }
+
+        if($('#tipocli').val() == 3){
+            $('#DivRevendedor').removeClass('hide');
+            $('#DivDomestico').addClass('hide');
+            $('#DivAbonado').addClass('hide');
+        }
+        if($('#tipocli').val() == 0){
+            $('#DivRevendedor').addClass('hide');
+            $('#DivDomestico').addClass('hide');
+            $('#DivAbonado').addClass('hide');
+        }
+
+    }
+</script>
