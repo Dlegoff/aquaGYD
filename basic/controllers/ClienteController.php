@@ -78,6 +78,8 @@ class ClienteController extends Controller
          */
         $localidades = Localidad::find()->all();
         $listData = ArrayHelper::map($localidades, 'idLoc', 'NomLoc');
+        $model->contacto=[];// = ['NroCli' => $value->NroCli, 'Telefono' => $value->Telefono];
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->NroCli]);
         }

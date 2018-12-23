@@ -265,7 +265,7 @@ use yii\jui\DatePicker;
                     ]);
                     ?>
                 </div>
-                <div class="col-sm-1 padding-0">Fecha Vive:</div>
+                <div class="col-sm-1 padding-0">Fecha:</div>
                 <div class="col-sm-2 padding-0">
                     <?= DatePicker::widget([
                         'model' => $model,
@@ -282,13 +282,57 @@ use yii\jui\DatePicker;
         </div>
     </div>
     <div class="panel panel-default">
+		<div class="panel-heading panel-header-gral flex-vertical-center">
+			<div class="col-sm-6 padding-0">
+				<h3 class="panel-title"> Datos de Contacto:</h3>
+			</div>
+			<div class="col-sm-6 padding-0" align="right">
+				<?= Html::button(utf8_encode('Agregar'), ['class' => 'btn btn-buscar', 'title' => utf8_encode('Agregar'), 'onclick' => "f_agregar()"]); ?>
+			</div>
+		</div>
+		<div class="panel-body" id="divControlesContacto">
+		<?php if (count($model->contacto) > 0) { ?>
+			<?php foreach ($model->contacto as $key => $value) { ?>
+				<div class="form-group flex-vertical-center" id="orden<?= $value['orden'] ?>">
+					<div class="col-sm-1 padding-0">Detalle:</div>
+					<div class="col-sm-3 padding-0">
+						<?= Html::Input('text', "Cliente[contacto][" . $value['orden'] . "][det]", $value['det'], [
+                            'class' => 'form-control controles',
+                            'maxlength' => 20,
+                            'style' => 'width:95%'
+                        ]);
+                        ?>
+					</div>
+					<div class="col-sm-1 padding-0">Telefono:</div>
+					<div class="col-sm-2 padding-0"><b>
+						<?= Html::Input('text', "Cliente[contacto][" . $value['orden'] . "][tel]", $value['tel'], [
+                            'class' => 'form-control controles',
+                            'onkeypress' => 'return justNumbers( $(this).val())',
+                            'maxlength' => 15,
+                            'style' => 'width:80%'
+                        ]);
+                        ?>
+					</b></div>
+					<div class="col-sm-1 padding-right-0">
+	    					<?= Html::Button('Borrar', ['class' => 'btn btn-danger', 'onclick' => 'f_borrar(' . $value['orden'] . ')']) ?>
+	    			</div>
+				</div>
+			<?php 
+    } ?>
+	<?php 
+    } ?>	
+		</div>
+	</div>
+    <div class="panel panel-default">
         <div class="panel-body">
             <div class="form-group" style="text-align:right">
                 <?= Html::submitButton('Grabar', ['class' => 'btn btn-success']) ?>
             </div>
         </div>
     </div>
+    
 </div>
+
     <?php ActiveForm::end(); ?>
 
 </div>
@@ -320,4 +364,27 @@ use yii\jui\DatePicker;
         }
 
     }
+
+    function f_agregar(){
+		var cant=$('#divControlesContacto > div.form-group').length+1;
+		$('#divControlesContacto').append( 
+			"<div class='form-group flex-vertical-center' id='orden"+cant+"'>"+
+				"<div class='col-sm-1 padding-0'>Detalle:</div>"+
+				"<div class='col-sm-3 padding-0'>"+
+					"<input type=text name='Persona[contacto]["+cant+"][det]' class='form-control controles' style='width:95%' maxlength=20>"+
+				"</div>"+
+				"<div class='col-sm-1 padding-0'>Telefono:</div>"+
+				"<div class='col-sm-2 padding-0'><b>"+
+					"<input type=text name='Persona[contacto]["+cant+"][tel]' class='form-control controles' style='width:80%' onkeypress ='return justNumbers( $(this).val())' maxlength=15>"+
+				"</b></div>"+
+				"<div class='col-sm-1 padding-right-0'>"+
+					"<button type=button class='btn btn-danger' onclick=f_borrar("+cant+")>Borrar</button>"+
+				"</div>"+
+			"</div>"
+				);
+	}
+
+	function f_borrar(cant){
+		$( "#orden" + cant ).remove();
+	}
 </script>
