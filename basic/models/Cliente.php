@@ -3,7 +3,7 @@
 namespace app\models;
 
 use Yii;
-
+use app\utils\utb;
 /**
  * This is the model class for table "cliente".
  *
@@ -29,6 +29,12 @@ class Cliente extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
+
+    public $estado;
+    public $localidad;
+    public $calle_nro;
+    public $calle_nom;
+
     public static function tableName()
     {
         return 'cliente';
@@ -41,7 +47,8 @@ class Cliente extends \yii\db\ActiveRecord
     {
         return [
             [['NroCli', 'tipocli'], 'required'],
-            [['NroCli', 'idCuenta', 'tipocli'], 'integer'],
+            [['NroCli', 'idCuenta', 'tipocli','calle_nro','localidad'], 'integer'],
+            [['estado','calle_nom'],'string'],
             [['nombre', 'observaciones'], 'string', 'max' => 30],
             [['NroCli'], 'unique'],
             [['idCuenta'], 'exist', 'skipOnError' => true, 'targetClass' => Cuentacorriente::className(), 'targetAttribute' => ['idCuenta' => 'idCuenta']],
@@ -154,5 +161,10 @@ class Cliente extends \yii\db\ActiveRecord
 
     public function getTipoClientes(){
         return Yii::$app->db->createCommand('select codctipo,nombre from cliente_tipo')->queryAll();
+    }
+
+    public function getLocalidades()
+    {
+        return utb::getAux('localidad', 'idLoc');
     }
 }

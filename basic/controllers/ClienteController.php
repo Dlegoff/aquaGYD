@@ -41,8 +41,6 @@ class ClienteController extends Controller
         $searchModel = new ClienteBuscar();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $tipos=utb::setCombo($model->getTipoClientes(),'codctipo');
-        //$clientes=$model->getClientes();
-        //print_r($dataProvider);exit;
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
