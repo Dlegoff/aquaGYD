@@ -4,26 +4,22 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\ProductoBuscar */
+/* @var $model app\models\ProductoTipoBuscar */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="producto-search">
+<div class="producto-tipo-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'idProd') ?>
+    <?= $form->field($model, 'codptipo') ?>
 
-    <?= $form->field($model, 'tipo') ?>
+    <?= $form->field($model, 'nombre') ?>
 
-    <?= $form->field($model, 'stock') ?>
-
-    <?= $form->field($model, 'stockMin') ?>
-
-    <?= $form->field($model, 'precioU') ?>
+    <?= $form->field($model, 'fechamod') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

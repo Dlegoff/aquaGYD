@@ -5,12 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Producto;
+use app\models\ProductoTipo;
 
 /**
- * ProductoBuscar represents the model behind the search form of `app\models\Producto`.
+ * ProductoTipoBuscar represents the model behind the search form of `app\models\ProductoTipo`.
  */
-class ProductoBuscar extends Producto
+class ProductoTipoBuscar extends ProductoTipo
 {
     /**
      * {@inheritdoc}
@@ -18,7 +18,8 @@ class ProductoBuscar extends Producto
     public function rules()
     {
         return [
-            [['idProd', 'tipo', 'stock', 'stockMin', 'precioU'], 'integer'],
+            [['codptipo'], 'integer'],
+            [['nombre', 'fechamod'], 'safe'],
         ];
     }
 
@@ -40,7 +41,7 @@ class ProductoBuscar extends Producto
      */
     public function search($params)
     {
-        $query = Producto::find();
+        $query = ProductoTipo::find();
 
         // add conditions that should always apply here
 
@@ -58,12 +59,11 @@ class ProductoBuscar extends Producto
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'idProd' => $this->idProd,
-            'tipo' => $this->tipo,
-            'stock' => $this->stock,
-            'stockMin' => $this->stockMin,
-            'precioU' => $this->precioU,
+            'codptipo' => $this->codptipo,
+            'fechamod' => $this->fechamod,
         ]);
+
+        $query->andFilterWhere(['like', 'nombre', $this->nombre]);
 
         return $dataProvider;
     }

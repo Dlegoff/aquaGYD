@@ -8,11 +8,12 @@ use Yii;
  * This is the model class for table "producto".
  *
  * @property int $idProd
- * @property string $tipo
+ * @property int $tipo
  * @property int $stock
  * @property int $stockMin
  * @property int $precioU
  *
+ * @property ProductoTipo $tipo0
  * @property Reparte[] $repartes
  * @property Reparte[] $repartes0
  * @property Reparto[] $repartos
@@ -41,9 +42,9 @@ class Producto extends \yii\db\ActiveRecord
     {
         return [
             [['idProd'], 'required'],
-            [['idProd', 'stock', 'stockMin', 'precioU'], 'integer'],
-            [['tipo'], 'string', 'max' => 30],
+            [['idProd', 'tipo', 'stock', 'stockMin', 'precioU'], 'integer'],
             [['idProd'], 'unique'],
+            [['tipo'], 'exist', 'skipOnError' => true, 'targetClass' => ProductoTipo::className(), 'targetAttribute' => ['tipo' => 'codptipo']],
         ];
     }
 
@@ -59,6 +60,14 @@ class Producto extends \yii\db\ActiveRecord
             'stockMin' => 'Stock Min',
             'precioU' => 'Precio U',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTipo0()
+    {
+        return $this->hasOne(ProductoTipo::className(), ['codptipo' => 'tipo']);
     }
 
     /**

@@ -3,6 +3,8 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use app\utils\utb;
+use yii\helpers\ArrayHelper;
+use yii\jui\DatePicker;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Cliente */
@@ -78,6 +80,26 @@ use app\utils\utb;
                     </div>
                 </div>
                 <div class="container-fluid flex-vertical-center">
+                    <div class="col-sm-2 padding-0">Saldo:</div>
+                    <div class="col-sm-2 padding-0"><b>Actual</b><br>
+                        <?= Html::activeInput('text', $model, 'saldoAct', [
+                            'class' => 'form-control controles',
+                            'maxlength' => 100,
+                            'style' => 'width: 90%',
+                        ]);
+                        ?>
+                        </div>
+                        <div class="col-sm-2 padding-0">
+                        <b>Limite</b><br>
+                        <?= Html::activeInput('text', $model, 'saldoLim', [
+                            'class' => 'form-control controles',
+                            'maxlength' => 100,
+                            'style' => 'width: 80%',
+                        ]);
+                        ?>
+                    </div>
+                </div>
+                <div class="container-fluid flex-vertical-center">
                     <div class="col-sm-2 padding-0">Observaciones:</div>
                     <div class="col-sm-10 padding-0">
                          <?= Html::activeInput( 'text',$model, 'observaciones',[
@@ -94,61 +116,60 @@ use app\utils\utb;
                 <div class="container-fluid flex-vertical-center">
                     <div class="col-sm-2 padding-0">CUIT:</div>
                     <div class="col-sm-2 padding-0">
-                         <?= Html::Input( 'text','cuit', null,[
-                                'class' => 'form-control controles',
-                                'maxlength'=>100,
-                                'style' => 'width: 90%',
-                            ]);
-                         ?>
+                         <?= Html::activeInput('text', $model, 'cuit', [
+                            'class' => 'form-control controles',
+                            'maxlength' => 100,
+                            'style' => 'width: 90%',
+                        ]);
+                        ?>
                     </div>
                     
                     <div class="col-sm-2 padding-0">Email:</div>
                     <div class="col-sm-2 padding-0">
-                         <?= Html::Input( 'text','email', null,[
-                                'class' => 'form-control controles',
-                                'maxlength'=>100,
-                                'style' => 'width: 90%',
-                            ]);
-                         ?>
+                         <?= Html::activeInput('text', $model, 'email', [
+                            'class' => 'form-control controles',
+                            'maxlength' => 100,
+                            'style' => 'width: 90%',
+                        ]);
+                        ?>
                     </div>
 
                     <div class="col-sm-2 padding-0">Cond. IVA:</div>
                     <div class="col-sm-2 padding-0">
-                         <?= Html::Input( 'text','condiva', null,[
-                                'class' => 'form-control controles',
-                                'maxlength'=>100,
-                                'style' => 'width: 100%',
-                            ]);
-                         ?>
+                         <?= Html::activeInput('text', $model, 'condiva', [
+                            'class' => 'form-control controles',
+                            'maxlength' => 100,
+                            'style' => 'width: 100%',
+                        ]);
+                        ?>
                     </div>
                 </div>
                 <div class="container-fluid flex-vertical-center">
                     <div class="col-sm-2 padding-0">Monto:</div>
                     <div class="col-sm-2 padding-0">
-                        <?= Html::Input('text', 'condiva', null, [
+                        <?= Html::activeInput('text', $model, 'monto', [
                             'class' => 'form-control controles',
                             'maxlength' => 100,
-                            'style' => 'width: 100%',
+                            'style' => 'width: 90%',
                         ]);
                         ?>
                     </div>
 
                     <div class="col-sm-2 padding-0">Cantidad:</div>
                     <div class="col-sm-2 padding-0">
-                        <?= Html::Input('text', 'condiva', null, [
+                        <?= Html::activeInput('text', $model, 'cantidad', [
                             'class' => 'form-control controles',
                             'maxlength' => 100,
-                            'style' => 'width: 100%',
+                            'style' => 'width: 90%'
                         ]);
                         ?>
                     </div>
 
                     <div class="col-sm-2 padding-0">T. Bidon:</div>
                     <div class="col-sm-2 padding-0">
-                        <?= Html::Input('text', 'condiva', null, [
+                        <?= Html::activeDropDownList($model, 'tbidon', utb::getAux("producto_tipo", 'codptipo'), [
                             'class' => 'form-control controles',
-                            'maxlength' => 100,
-                            'style' => 'width: 100%',
+                            'style' => 'width: 100%'
                         ]);
                         ?>
                     </div>
@@ -156,20 +177,28 @@ use app\utils\utb;
                 <div class="container-fluid flex-vertical-center">
                     <div class="col-sm-2 padding-0">Fecha Alq:</div>
                     <div class="col-sm-2 padding-0">
-                        <?= Html::Input('text', 'condiva', null, [
-                            'class' => 'form-control controles',
-                            'maxlength' => 100,
-                            'style' => 'width: 100%',
+                        <?= DatePicker::widget([
+                            'model' => $model,
+                            'attribute' => 'fchalq',
+                            'dateFormat' => 'dd/MM/yyyy',
+                            'options' => [
+                                'class' => 'form-control controles',
+                                'style' => 'text-align: center;width:90%;'
+                            ],
                         ]);
                         ?>
                     </div>
 
                     <div class="col-sm-2 padding-0">Fecha Ini.:</div>
                     <div class="col-sm-2 padding-0">
-                        <?= Html::Input('text', 'condiva', null, [
-                            'class' => 'form-control controles',
-                            'maxlength' => 100,
-                            'style' => 'width: 100%',
+                        <?= DatePicker::widget([
+                            'model' => $model,
+                            'attribute' => 'fchini',
+                            'dateFormat' => 'dd/MM/yyyy',
+                            'options' => [
+                                'class' => 'form-control controles',
+                                'style' => 'text-align: center;width:90%;'
+                            ],
                         ]);
                         ?>
                     </div>
@@ -180,14 +209,13 @@ use app\utils\utb;
                 <div class="container-fluid flex-vertical-center">
                     <div class="col-sm-2 padding-0">Email:</div>
                     <div class="col-sm-2 padding-0">
-                         <?= Html::Input( 'text','email', null,[
-                                'class' => 'form-control controles',
-                                'maxlength'=>100,
-                                'style' => 'width: 90%',
-                            ]);
-                         ?>
+                         <?= Html::activeInput('text', $model, 'email', [
+                            'class' => 'form-control controles',
+                            'maxlength' => 100,
+                            'style' => 'width: 100%'
+                        ]);
+                        ?>
                     </div>
-                    
                 </div>
             </div>
 
@@ -195,12 +223,12 @@ use app\utils\utb;
                 <div class="container-fluid flex-vertical-center">
                     <div class="col-sm-2 padding-0">DNI:</div>
                     <div class="col-sm-2 padding-0">
-                         <?= Html::Input( 'text','dni', null,[
-                                'class' => 'form-control controles',
-                                'maxlength'=>100,
-                                'style' => 'width: 90%',
-                            ]);
-                         ?>
+                         <?= Html::activeInput('text', $model, 'dni', [
+                            'class' => 'form-control controles',
+                            'maxlength' => 100,
+                            'style' => 'width: 100%'
+                        ]);
+                        ?>
                     </div>
                 </div>
             </div>
@@ -214,7 +242,7 @@ use app\utils\utb;
             <div class="container-fluid flex-vertical-center">
                 <div class="col-sm-2 padding-0">Localidad:</div>
                 <div class="col-sm-2 padding-0">
-                    <?= Html::activeDropDownList($model, 'localidad', /*$model->getLocalidades()*/ $localidades = ['1' => 'Parana', '2' => 'Oro Verde', '3' => 'San Benito'], [
+                    <?= Html::activeDropDownList($model, 'localidad',$localidades, [
                         'class' => 'form-control controles',
                         'style' => 'width: 90%'
                     ]);
@@ -225,15 +253,28 @@ use app\utils\utb;
                     <?= Html::activeInput('text', $model, 'calle_nro', [
                         'class' => 'form-control controles',
                         'maxlength' => 5,
-                        'style' => 'width: 90%',
+                        'style' => 'width: 90%'
                     ]);
                     ?>
                 </div>
-                <div class="col-sm-6 padding-0">
+                <div class="col-sm-3 padding-0">
                     <?= Html::activeInput('text', $model, 'calle_nom', [
                         'class' => 'form-control controles',
                         'maxlength' => 40,
-                        'style' => 'width: 100%',
+                        'style' => 'width: 90%'
+                    ]);
+                    ?>
+                </div>
+                <div class="col-sm-1 padding-0">Fecha Vive:</div>
+                <div class="col-sm-2 padding-0">
+                    <?= DatePicker::widget([
+                        'model' => $model,
+                        'attribute' => 'fchloc',
+                        'dateFormat' => 'dd/MM/yyyy',
+                        'options' => [
+                            'class' => 'form-control controles',
+                            'style' => 'text-align: center;width:100%;'
+                        ],
                     ]);
                     ?>
                 </div>

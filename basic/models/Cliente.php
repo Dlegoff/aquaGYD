@@ -34,6 +34,19 @@ class Cliente extends \yii\db\ActiveRecord
     public $localidad;
     public $calle_nro;
     public $calle_nom;
+    public $tbidon;
+    public $fchalq;
+    public $fchini;
+    public $monto;
+    public $cantidad;
+    public $cuit;
+    public $email;
+    public $condiva;
+    public $dni;
+    public $saldoAct;
+    public $saldoLim;
+    public $fchloc;
+    //Falta agregar todas estas variables al rules de abajo para recibir todo por submit y hacer el load del controlador.
 
     public static function tableName()
     {

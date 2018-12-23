@@ -3,19 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Cliente;
-use app\models\Localidad;
-use app\models\ClienteBuscar;
+use app\models\ProductoTipo;
+use app\models\ProductoTipoBuscar;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use app\utils\utb;
-use yii\helpers\ArrayHelper;
 
 /**
- * ClienteController implements the CRUD actions for Cliente model.
+ * ProductotipoController implements the CRUD actions for ProductoTipo model.
  */
-class ClienteController extends Controller
+class ProductotipoController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -33,25 +30,22 @@ class ClienteController extends Controller
     }
 
     /**
-     * Lists all Cliente models.
+     * Lists all ProductoTipo models.
      * @return mixed
      */
     public function actionIndex()
     {
-         $model= new Cliente();
-        $tipos=[];
-        $searchModel = new ClienteBuscar();
+        $searchModel = new ProductoTipoBuscar();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        $tipos=utb::setCombo($model->getTipoClientes(),'codctipo');
+
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-            'tipos' => $tipos
         ]);
     }
 
     /**
-     * Displays a single Cliente model.
+     * Displays a single ProductoTipo model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -64,33 +58,25 @@ class ClienteController extends Controller
     }
 
     /**
-     * Creates a new Cliente model.
+     * Creates a new ProductoTipo model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Cliente();
-        $modelLoc= new Localidad();
-        $tipos=utb::setCombo($model->getTipoClientes(),'codctipo');
-        /**
-         *El combo de Localidades se armo de esta forma porque por alguna razon no andaba de otra...
-         */
-        $localidades = Localidad::find()->all();
-        $listData = ArrayHelper::map($localidades, 'idLoc', 'NomLoc');
+        $model = new ProductoTipo();
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->NroCli]);
+            return $this->redirect(['view', 'id' => $model->codptipo]);
         }
 
         return $this->render('create', [
             'model' => $model,
-            'tipos' => $tipos,
-            'localidades'=>$listData
         ]);
     }
 
     /**
-     * Updates an existing Cliente model.
+     * Updates an existing ProductoTipo model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -101,7 +87,7 @@ class ClienteController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->NroCli]);
+            return $this->redirect(['view', 'id' => $model->codptipo]);
         }
 
         return $this->render('update', [
@@ -110,7 +96,7 @@ class ClienteController extends Controller
     }
 
     /**
-     * Deletes an existing Cliente model.
+     * Deletes an existing ProductoTipo model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -124,15 +110,15 @@ class ClienteController extends Controller
     }
 
     /**
-     * Finds the Cliente model based on its primary key value.
+     * Finds the ProductoTipo model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Cliente the loaded model
+     * @return ProductoTipo the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Cliente::findOne($id)) !== null) {
+        if (($model = ProductoTipo::findOne($id)) !== null) {
             return $model;
         }
 
