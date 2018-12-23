@@ -69,7 +69,7 @@ use app\utils\utb;
                     </div>
                     <div class="col-sm-1 padding-0">Estado:</div>
                     <div class="col-sm-2 padding-0">
-                    <?= Html::activeDropDownList( $model, 'estado',$estados=['A'=>'Activo','B'=>'Baja'], [
+                    <?= Html::activeDropDownList( $model, 'estado',$estados=['A'=>'Activo','I'=>'Inactivo'], [
                                 'class' => 'form-control controles',
                                 'style' => 'width: 100%',
                                 'id' => 'est'
@@ -83,7 +83,7 @@ use app\utils\utb;
                          <?= Html::activeInput( 'text',$model, 'observaciones',[
                                 'class' => 'form-control controles',
                                 'maxlength'=>100,
-                                'style' => 'width: 90%',
+                                'style' => 'width: 100%',
                             ]);
                          ?>
                     </div>
@@ -121,7 +121,58 @@ use app\utils\utb;
                             ]);
                          ?>
                     </div>
+                </div>
+                <div class="container-fluid flex-vertical-center">
+                    <div class="col-sm-2 padding-0">Monto:</div>
+                    <div class="col-sm-2 padding-0">
+                        <?= Html::Input('text', 'condiva', null, [
+                            'class' => 'form-control controles',
+                            'maxlength' => 100,
+                            'style' => 'width: 100%',
+                        ]);
+                        ?>
+                    </div>
 
+                    <div class="col-sm-2 padding-0">Cantidad:</div>
+                    <div class="col-sm-2 padding-0">
+                        <?= Html::Input('text', 'condiva', null, [
+                            'class' => 'form-control controles',
+                            'maxlength' => 100,
+                            'style' => 'width: 100%',
+                        ]);
+                        ?>
+                    </div>
+
+                    <div class="col-sm-2 padding-0">T. Bidon:</div>
+                    <div class="col-sm-2 padding-0">
+                        <?= Html::Input('text', 'condiva', null, [
+                            'class' => 'form-control controles',
+                            'maxlength' => 100,
+                            'style' => 'width: 100%',
+                        ]);
+                        ?>
+                    </div>
+                </div>
+                <div class="container-fluid flex-vertical-center">
+                    <div class="col-sm-2 padding-0">Fecha Alq:</div>
+                    <div class="col-sm-2 padding-0">
+                        <?= Html::Input('text', 'condiva', null, [
+                            'class' => 'form-control controles',
+                            'maxlength' => 100,
+                            'style' => 'width: 100%',
+                        ]);
+                        ?>
+                    </div>
+
+                    <div class="col-sm-2 padding-0">Fecha Ini.:</div>
+                    <div class="col-sm-2 padding-0">
+                        <?= Html::Input('text', 'condiva', null, [
+                            'class' => 'form-control controles',
+                            'maxlength' => 100,
+                            'style' => 'width: 100%',
+                        ]);
+                        ?>
+                    </div>
                 </div>
             </div>
 
@@ -151,7 +202,6 @@ use app\utils\utb;
                             ]);
                          ?>
                     </div>
-                    
                 </div>
             </div>
         </div>
