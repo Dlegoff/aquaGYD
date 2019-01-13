@@ -360,6 +360,10 @@ use yii\jui\DatePicker;
 </div>
 
 <script>
+$(document).ready(function(){
+    f_mostrarDivs();
+})
+
     function f_mostrarDivs(){
 
         if($('#tipocli').val() == 1){
