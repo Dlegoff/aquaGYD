@@ -9,13 +9,14 @@ use Yii;
  *
  * @property int $idRepartidor
  * @property string $NyA
+ * @property string $TelRep
  * @property string $nomcalle
  * @property string $numcalle
  * @property int $idLoc
- * @property string $TelRep
+ * @property int $piso
+ * @property int $depto
  *
  * @property Reparto[] $repartos
- * @property Reparto[] $repartos0
  */
 class Repartidor extends \yii\db\ActiveRecord
 {
@@ -33,8 +34,8 @@ class Repartidor extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['idRepartidor', 'TelRep'], 'required'],
-            [['idRepartidor', 'idLoc', 'TelRep'], 'integer'],
+            [['idRepartidor'], 'required'],
+            [['idRepartidor', 'TelRep', 'idLoc', 'piso', 'depto'], 'integer'],
             [['NyA', 'nomcalle', 'numcalle'], 'string', 'max' => 30],
             [['idRepartidor'], 'unique'],
         ];
@@ -48,10 +49,12 @@ class Repartidor extends \yii\db\ActiveRecord
         return [
             'idRepartidor' => 'Id Repartidor',
             'NyA' => 'Ny A',
+            'TelRep' => 'Tel Rep',
             'nomcalle' => 'Nomcalle',
             'numcalle' => 'Numcalle',
             'idLoc' => 'Id Loc',
-            'TelRep' => 'Tel Rep',
+            'piso' => 'Piso',
+            'depto' => 'Depto',
         ];
     }
 
@@ -59,14 +62,6 @@ class Repartidor extends \yii\db\ActiveRecord
      * @return \yii\db\ActiveQuery
      */
     public function getRepartos()
-    {
-        return $this->hasMany(Reparto::className(), ['idRepartidor' => 'idRepartidor']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getRepartos0()
     {
         return $this->hasMany(Reparto::className(), ['idRepartidor' => 'idRepartidor']);
     }

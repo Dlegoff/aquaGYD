@@ -47,6 +47,8 @@ class Cliente extends \yii\db\ActiveRecord
     public $saldoLim;
     public $fchloc;
     public $contacto;
+    public $piso;
+    public $dpto;
     //Falta agregar todas estas variables al rules de abajo para recibir todo por submit y hacer el load del controlador.
 
     public static function tableName()

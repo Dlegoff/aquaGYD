@@ -4,19 +4,19 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Localidad */
+/* @var $model app\models\LocalidadTipo */
 
-$this->title = $model->idLoc;
-$this->params['breadcrumbs'][] = ['label' => 'Localidads', 'url' => ['index']];
+$this->title = $model->codltipo;
+$this->params['breadcrumbs'][] = ['label' => 'Localidad Tipos', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="localidad-view">
+<div class="localidad-tipo-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->idLoc], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->idLoc], [
+        <?= Html::a('Update', ['update', 'id' => $model->codltipo], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Delete', ['delete', 'id' => $model->codltipo], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -28,11 +28,9 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'idLoc',
-            'provincia',
-            'codPost',
-            'cantHab',
-            'tipoloc',
+            'codltipo',
+            'nombre',
+            'fechamod',
         ],
     ]) ?>
 

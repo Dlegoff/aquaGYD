@@ -5,12 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Localidad;
+use app\models\LocalidadTipo;
 
 /**
- * LocalidadBuscar represents the model behind the search form of `app\models\Localidad`.
+ * LocalidadTipoBuscar represents the model behind the search form of `app\models\LocalidadTipo`.
  */
-class LocalidadBuscar extends Localidad
+class LocalidadTipoBuscar extends LocalidadTipo
 {
     /**
      * {@inheritdoc}
@@ -18,8 +18,8 @@ class LocalidadBuscar extends Localidad
     public function rules()
     {
         return [
-            [['idLoc', 'codPost', 'cantHab', 'tipoloc'], 'integer'],
-            [['provincia'], 'safe'],
+            [['codltipo'], 'integer'],
+            [['nombre', 'fechamod'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class LocalidadBuscar extends Localidad
      */
     public function search($params)
     {
-        $query = Localidad::find();
+        $query = LocalidadTipo::find();
 
         // add conditions that should always apply here
 
@@ -59,13 +59,11 @@ class LocalidadBuscar extends Localidad
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'idLoc' => $this->idLoc,
-            'codPost' => $this->codPost,
-            'cantHab' => $this->cantHab,
-            'tipoloc' => $this->tipoloc,
+            'codltipo' => $this->codltipo,
+            'fechamod' => $this->fechamod,
         ]);
 
-        $query->andFilterWhere(['like', 'provincia', $this->provincia]);
+        $query->andFilterWhere(['like', 'nombre', $this->nombre]);
 
         return $dataProvider;
     }

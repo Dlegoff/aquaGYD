@@ -18,7 +18,7 @@ class RepartidorBuscar extends Repartidor
     public function rules()
     {
         return [
-            [['idRepartidor', 'idLoc', 'TelRep'], 'integer'],
+            [['idRepartidor', 'TelRep', 'idLoc', 'piso', 'depto'], 'integer'],
             [['NyA', 'nomcalle', 'numcalle'], 'safe'],
         ];
     }
@@ -60,8 +60,10 @@ class RepartidorBuscar extends Repartidor
         // grid filtering conditions
         $query->andFilterWhere([
             'idRepartidor' => $this->idRepartidor,
-            'idLoc' => $this->idLoc,
             'TelRep' => $this->TelRep,
+            'idLoc' => $this->idLoc,
+            'piso' => $this->piso,
+            'depto' => $this->depto,
         ]);
 
         $query->andFilterWhere(['like', 'NyA', $this->NyA])

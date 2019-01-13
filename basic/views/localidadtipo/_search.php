@@ -4,26 +4,22 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\LocalidadBuscar */
+/* @var $model app\models\LocalidadTipoBuscar */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="localidad-search">
+<div class="localidad-tipo-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'idLoc') ?>
+    <?= $form->field($model, 'codltipo') ?>
 
-    <?= $form->field($model, 'provincia') ?>
+    <?= $form->field($model, 'nombre') ?>
 
-    <?= $form->field($model, 'codPost') ?>
-
-    <?= $form->field($model, 'cantHab') ?>
-
-    <?= $form->field($model, 'tipoloc') ?>
+    <?= $form->field($model, 'fechamod') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

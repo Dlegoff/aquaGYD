@@ -279,6 +279,28 @@ use yii\jui\DatePicker;
                     ?>
                 </div>
             </div>
+            <div class="container-fluid flex-vertical-center">
+                <div class="col-sm-4 padding-0"></div>
+                <div class="col-sm-1 padding-0">Piso:</div>
+                    <div class="col-sm-1 padding-0">
+                        <?= Html::activeInput('text', $model, 'piso', [
+                            'class' => 'form-control controles',
+                            'maxlength' => 5,
+                            'style' => 'width: 90%'
+                        ]);
+                        ?>
+                    </div>
+                    <div class="col-sm-1 padding-0">Dpto:</div>
+                    <div class="col-sm-1 padding-0">
+                        <?= Html::activeInput('text', $model, 'dpto', [
+                            'class' => 'form-control controles',
+                            'maxlength' => 5,
+                            'style' => 'width: 90%'
+                        ]);
+                        ?>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="panel panel-default">

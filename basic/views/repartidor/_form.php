@@ -16,13 +16,17 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'NyA')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'TelRep')->textInput(['maxlength' => true]) ?>
+
     <?= $form->field($model, 'nomcalle')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'numcalle')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'idLoc')->textInput() ?>
 
-    <?= $form->field($model, 'TelRep')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'piso')->textInput() ?>
+
+    <?= $form->field($model, 'depto')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

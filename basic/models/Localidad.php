@@ -8,13 +8,14 @@ use Yii;
  * This is the model class for table "localidad".
  *
  * @property int $idLoc
- * @property string $NomLoc
  * @property string $provincia
  * @property int $codPost
- * @property int $cantHab
+ * @property string $cantHab
+ * @property int $tipoloc
  *
  * @property ClienteLoc[] $clienteLocs
  * @property Cliente[] $nroClis
+ * @property LocalidadTipo $tipoloc0
  */
 class Localidad extends \yii\db\ActiveRecord
 {
@@ -32,10 +33,11 @@ class Localidad extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['idLoc'], 'required'],
-            [['idLoc', 'codPost', 'cantHab'], 'integer'],
-            [['NomLoc', 'provincia'], 'string', 'max' => 30],
+            [['idLoc', 'tipoloc'], 'required'],
+            [['idLoc', 'codPost', 'cantHab', 'tipoloc'], 'integer'],
+            [['provincia'], 'string', 'max' => 30],
             [['idLoc'], 'unique'],
+            [['tipoloc'], 'exist', 'skipOnError' => true, 'targetClass' => LocalidadTipo::className(), 'targetAttribute' => ['tipoloc' => 'codltipo']],
         ];
     }
 
@@ -46,10 +48,10 @@ class Localidad extends \yii\db\ActiveRecord
     {
         return [
             'idLoc' => 'Id Loc',
-            'NomLoc' => 'Nom Loc',
             'provincia' => 'Provincia',
             'codPost' => 'Cod Post',
             'cantHab' => 'Cant Hab',
+            'tipoloc' => 'Tipoloc',
         ];
     }
 
@@ -67,5 +69,13 @@ class Localidad extends \yii\db\ActiveRecord
     public function getNroClis()
     {
         return $this->hasMany(Cliente::className(), ['NroCli' => 'nroCli'])->viaTable('cliente_loc', ['idLoc' => 'idLoc']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTipoloc0()
+    {
+        return $this->hasOne(LocalidadTipo::className(), ['codltipo' => 'tipoloc']);
     }
 }
