@@ -183,4 +183,47 @@ class Cliente extends \yii\db\ActiveRecord
     {
         return utb::getAux('localidad', 'idLoc');
     }
+
+    public function grabarCliente(){
+
+
+        $transaction = Yii::$app->db->beginTransaction();
+        try {
+
+            switch ($this->scenario) {
+
+                case 'insert':  //Insert
+
+                    $sql = "insert into cliente values ()";
+                    Yii::$app->db->createCommand($sql)->execute();
+                    break;
+
+                case 'update': //UPDATE
+
+                    $sql = "update cliente SET ";
+                    Yii::$app->db->createCommand($sql)->execute();
+
+                    break;
+
+                case 'delete': //Delete
+                    
+                    $sql = "update cliente set est='B' WHERE ";
+
+                    Yii::$app->db->createCommand($sql)->execute();
+
+                    break;
+
+            }
+
+        } catch (\Exception $e) {
+
+            $transaction->rollback();
+            $this->addError('cliente', $e->getMessage());
+
+            return false;
+        }
+
+        $transaction->commit();
+        return true;
+    }
 }
