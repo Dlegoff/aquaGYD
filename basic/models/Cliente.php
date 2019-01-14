@@ -30,25 +30,48 @@ class Cliente extends \yii\db\ActiveRecord
      * {@inheritdoc}
      */
 
-    public $estado;
     public $localidad;
-    public $calle_nro;
-    public $calle_nom;
     public $tbidon;
-    public $fchalq;
-    public $fchini;
-    public $monto;
-    public $cantidad;
-    public $cuit;
-    public $email;
-    public $condiva;
-    public $dni;
-    public $saldoAct;
-    public $saldoLim;
-    public $fchloc;
+   
     public $contacto;
+
+    //Tabla Cliente_Localidad
+    public $calle_nom;
+    public $calle_nro;
+    public $fechaVive;
     public $piso;
     public $dpto;
+    //-------------//
+
+    //Tabla CuentaCorriente
+    public $SaldoAct;
+    public $SaldoLimit;
+    public $fechaCC;
+    public $Estado;
+    //-------------//
+
+    //Tabla Abono
+    public $idAbono;
+    public $monto;
+    public $cantBidones;
+    public $fechaCobro;
+    public $fechaAlta;
+    //--------------//
+
+    //Tabla Abonado
+    public $cuit;
+    public $email_abonado;
+    public $condiva;
+
+    //Tabla Domestico
+    public $dni;
+    //--------------//
+
+    //Tabla Revendedor
+    public $email;
+    //--------------//
+
+
     //Falta agregar todas estas variables al rules de abajo para recibir todo por submit y hacer el load del controlador.
 
     public static function tableName()
@@ -62,14 +85,30 @@ class Cliente extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+
             [['NroCli', 'tipocli'], 'required'],
-            [['NroCli', 'idCuenta', 'tipocli','calle_nro','localidad'], 'integer'],
-            [['estado','calle_nom'],'string'],
+            [['NroCli', 'idCuenta', 'tipocli','calle_nro','localidad','dni', 'idAbono','monto','cantBidones', 'SaldoAct','SaldoLimit','Estado', 'piso','dpto'], 'integer'],
+            [['fechaCobro','fechaAlta', 'fechaCC', 'fechaVive'],'safe'],
+            [['estado','calle_nom', 'cuit'],'string'],
             [['nombre', 'observaciones'], 'string', 'max' => 30],
             [['NroCli'], 'unique'],
+            ['email','email'],
             [['idCuenta'], 'exist', 'skipOnError' => true, 'targetClass' => Cuentacorriente::className(), 'targetAttribute' => ['idCuenta' => 'idCuenta']],
             [['tipocli'], 'exist', 'skipOnError' => true, 'targetClass' => ClienteTipo::className(), 'targetAttribute' => ['tipocli' => 'codctipo']],
         ];
+    }
+
+    public function scenarios()
+    {
+
+        return [
+            'insert' => ['NroCli', 'idCuenta', 'tipocli', 'calle_nro', 'localidad', 'dni', 'idAbono', 'monto', 'cantBidones', 'SaldoAct', 'SaldoLimit', 'Estado', 'piso', 'dpto', 'fechaCobro', 'fechaAlta', 'fechaCC', 'fechaVive', 'estado', 'calle_nom', 'cuit', 'nombre', 'observaciones', 'email','idLoc'],
+
+            'update' => ['NroCli', 'idCuenta', 'tipocli', 'calle_nro', 'localidad', 'dni', 'idAbono', 'monto', 'cantBidones', 'SaldoAct', 'SaldoLimit', 'Estado', 'piso', 'dpto', 'fechaCobro', 'fechaAlta', 'fechaCC', 'fechaVive', 'estado', 'calle_nom', 'cuit', 'nombre', 'observaciones', 'email','idLoc'],
+
+            'delete' => ['NroCli', 'idCuenta','idLoc','idAbono']
+        ];
+
     }
 
     /**
@@ -193,26 +232,128 @@ class Cliente extends \yii\db\ActiveRecord
             switch ($this->scenario) {
 
                 case 'insert':  //Insert
+                    //Maximo id de cliente
+                    $sql="select MAX(NroCli)+1 from cliente";
+                    $this->NroCli=Yii::$app->db->createCommand($sql)->queryScalar();
+                     //-----------------------------------------------------------------//
 
-                    $sql = "insert into cliente values ()";
+                    //Maximo id de cuentacorriente
+                    $sql = "select max(idCuenta)+1 from cuentacorriente";
+                    $this->idCuenta = Yii::$app->db->createCommand($sql)->queryScalar();
+                     //-----------------------------------------------------------------//
+
+                    //Maximo id de abono
+                    $sql="select max(idAbono)+1 from abono";
+                    $this->idAbono = Yii::$app->db->createCommand($sql)->queryScalar();
+                    //-----------------------------------------------------------------//
+                    //Inserto la cuentacorriente
+                    $sql = "insert into cuentacorriente values (" . $this->idCuenta . "," . $this->SaldoAct . "," . $this->SaldoLimit . ",'$this->fechaCC',1)";
                     Yii::$app->db->createCommand($sql)->execute();
+                    //-----------------------------------------------------------------//
+
+                    //Inserto el Cliente
+                    $sql = "insert into cliente values (".$this->NroCli.",'$this->nombre','$this->observaciones',".$this->idCuenta.",".$this->idLoc.",".$this->tipocli.")";
+                    Yii::$app->db->createCommand($sql)->execute();
+                    //-----------------------------------------------------------------//
+
+
+                    //inserto la localidad
+                    $sql = "insert into cliente_loc values (" . $this->idLoc . "," . $this->NroCli . ",'$this->calle_nom'," . $this->calle_nro . ",'$this->fechaVive'," . $this->piso . "," . $this->dpto . " )";
+                    Yii::$app->db->createCommand($sql)->execute();
+                    //-----------------------------------------------------------------//
+
+                    //Abono
+                    if($this->tipocli==1){
+                        $sql="insert into abono values (".$this->idAbono.",".$this->NroCli.",".$this->monto.",".$this->cantBidones.",'$this->fechaCobro','$this->fechaAlta')";
+                        Yii::$app->db->createCommand($sql)->execute();
+
+                        //Abonado
+                        $sql="insert into abonado values (".$this->NroCli.",'$this->cuit','$this->email_abonado',".$this->condiva;
+
+                    }
+                    //Domestico
+                    if($this->tipocli==2){
+                        $sql="insert into domestico values (".$this->NroCli.",$this->dni)";
+                        Yii::$app->db->createCommand($sql)->execute();
+                    }
+                    //Revendedor
+                    if($this->tipocli==3){
+                        $sql = "insert into revendedor values (".$this->NroCli.",'$this->email')";
+                        Yii::$app->db->createCommand($sql)->execute();
+                    }
+
                     break;
 
                 case 'update': //UPDATE
-
-                    $sql = "update cliente SET ";
+                    //Modifico el Cliente
+                    $sql = "update cliente SET nombre='$this>nombre', observaciones='$this->observaciones',idLoc=".$this->idLoc.",tipocli=".$this->tipocli." where NroCli=".$this->NroCli;
                     Yii::$app->db->createCommand($sql)->execute();
+
+                    //Modifico la cuentacorriente
+                    $sql = "update cuentacorriente set SaldoAct=" . $this->SaldoAct . ",SaldoLimit=" . $this->SaldoLimit . ",fechaCC='$this->fechaCC',Estado=$this->Estado where NroCli=".$this->NroCli." and idCuenta=".$this->idCuenta;
+                    Yii::$app->db->createCommand($sql)->execute();
+                    //-----------------------------------------------------------------//
+
+                    //Modifico la localidad
+                    $sql = "update cliente_loc set nomCalle='$this->calle_nom',nroCalle=" . $this->calle_nro . ",fechaVive='$this->fechaVive',piso=" . $this->piso . ",depto=" . $this->dpto . " where idLoc=".$this->idLoc." and nroCli=".$this->NroCli;
+                    Yii::$app->db->createCommand($sql)->execute();
+
+                    //Abono
+                    if ($this->tipocli == 1) {
+                        $sql = "update abono SET monto=".$this->monto . ",cantBidones=" . $this->cantBidones . ",fechaCobro='$this->fechaCobro',fechaAlta='$this->fechaAlta' where NroCli=".$this->NroCli;
+                        Yii::$app->db->createCommand($sql)->execute();
+
+                        //Abonado
+                        $sql = "update abonado set cuit='$this->cuit',email='$this->email_abonado',CondIva=" . $this->condiva. " where NroCli=" . $this->NroCli;
+
+                        
+                    }
+                    //Domestico
+                    if ($this->tipocli == 2) {
+                        $sql = "update domestico SET dni=".$this->dni." where NroCli=".$this->NroCli;
+                        Yii::$app->db->createCommand($sql)->execute();
+                    }
+                    //Revendedor
+                    if ($this->tipocli == 3) {
+                        $sql = "update revendedor set email='$this->email' where NroCli=".$this->NroCli;
+                        Yii::$app->db->createCommand($sql)->execute();
+                    }
 
                     break;
 
                 case 'delete': //Delete
                     
-                    $sql = "update cliente set est='B' WHERE ";
-
+                    $sql = "delete from cliente where NroCli=$this->NroCli";
                     Yii::$app->db->createCommand($sql)->execute();
 
-                    break;
+                    //Elimino la cuentacorriente
+                    $sql = "delete from cuentacorriente where NroCli=" . $this->NroCli . " and idCuenta=" . $this->idCuenta;
+                    Yii::$app->db->createCommand($sql)->execute();
 
+                    //Elimino la localidad
+                    $sql = "delete from cliente_loc where idLoc=" . $this->idLoc . " and nroCli=" . $this->NroCli;
+                    Yii::$app->db->createCommand($sql)->execute();
+
+                    //Abono
+                    if ($this->tipocli == 1) {
+                        $sql = "delete from abono where NroCli=" . $this->NroCli;
+                        Yii::$app->db->createCommand($sql)->execute();
+
+                        //Abonado
+                        $sql = "delete from abonado where NroCli=" . $this->NroCli;
+                    }
+                    //Domestico
+                    if ($this->tipocli == 2) {
+                        $sql = "delete from domestico where NroCli=" . $this->NroCli;
+                        Yii::$app->db->createCommand($sql)->execute();
+                    }
+                    //Revendedor
+                    if ($this->tipocli == 3) {
+                        $sql = "delete from revendedor where NroCli=" . $this->NroCli;
+                        Yii::$app->db->createCommand($sql)->execute();
+                    }
+
+                    break;
             }
 
         } catch (\Exception $e) {

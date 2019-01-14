@@ -5,13 +5,14 @@ use yii\widgets\ActiveForm;
 use app\utils\utb;
 use yii\helpers\ArrayHelper;
 use yii\jui\DatePicker;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Cliente */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 <div class="cliente-form">
-<?php $form = ActiveForm::begin(); ?>
+<?php $form = ActiveForm::begin(['id' => 'formCliente']); ?>
 <div class="container-fluid">
         <div class="panel panel-default">
             <div class="panel-body flex-vertical-center">
@@ -45,6 +46,7 @@ use yii\jui\DatePicker;
                                     'class' => 'form-control controles',
                                     'maxlength'=>3,
                                     'style' => 'width: 90%',
+                                    'readonly' => true
                                 ]);
                          ?>
                     </div>
@@ -71,7 +73,7 @@ use yii\jui\DatePicker;
                     </div>
                     <div class="col-sm-1 padding-0">Estado:</div>
                     <div class="col-sm-2 padding-0">
-                    <?= Html::activeDropDownList( $model, 'estado',$estados=['A'=>'Activo','I'=>'Inactivo'], [
+                    <?= Html::activeDropDownList( $model, 'Estado',$estados=['A'=>'Activo','I'=>'Inactivo'], [
                                 'class' => 'form-control controles',
                                 'style' => 'width: 100%',
                                 'id' => 'est'
@@ -82,7 +84,7 @@ use yii\jui\DatePicker;
                 <div class="container-fluid flex-vertical-center">
                     <div class="col-sm-2 padding-0">Saldo:</div>
                     <div class="col-sm-2 padding-0"><b>Actual</b><br>
-                        <?= Html::activeInput('text', $model, 'saldoAct', [
+                        <?= Html::activeInput('text', $model, 'SaldoAct', [
                             'class' => 'form-control controles',
                             'maxlength' => 100,
                             'style' => 'width: 90%',
@@ -91,7 +93,7 @@ use yii\jui\DatePicker;
                         </div>
                         <div class="col-sm-2 padding-0">
                         <b>Limite</b><br>
-                        <?= Html::activeInput('text', $model, 'saldoLim', [
+                        <?= Html::activeInput('text', $model, 'SaldoLimit', [
                             'class' => 'form-control controles',
                             'maxlength' => 100,
                             'style' => 'width: 80%',
@@ -157,7 +159,7 @@ use yii\jui\DatePicker;
 
                     <div class="col-sm-2 padding-0">Cantidad:</div>
                     <div class="col-sm-2 padding-0">
-                        <?= Html::activeInput('text', $model, 'cantidad', [
+                        <?= Html::activeInput('text', $model, 'cantBidones', [
                             'class' => 'form-control controles',
                             'maxlength' => 100,
                             'style' => 'width: 90%'
@@ -175,11 +177,11 @@ use yii\jui\DatePicker;
                     </div>
                 </div>
                 <div class="container-fluid flex-vertical-center">
-                    <div class="col-sm-2 padding-0">Fecha Alq:</div>
+                    <div class="col-sm-2 padding-0">Fecha Cobro:</div>
                     <div class="col-sm-2 padding-0">
                         <?= DatePicker::widget([
                             'model' => $model,
-                            'attribute' => 'fchalq',
+                            'attribute' => 'fechaCobro',
                             'dateFormat' => 'dd/MM/yyyy',
                             'options' => [
                                 'class' => 'form-control controles',
@@ -189,11 +191,11 @@ use yii\jui\DatePicker;
                         ?>
                     </div>
 
-                    <div class="col-sm-2 padding-0">Fecha Ini.:</div>
+                    <div class="col-sm-2 padding-0">Fecha Alta.:</div>
                     <div class="col-sm-2 padding-0">
                         <?= DatePicker::widget([
                             'model' => $model,
-                            'attribute' => 'fchini',
+                            'attribute' => 'fechaAlta',
                             'dateFormat' => 'dd/MM/yyyy',
                             'options' => [
                                 'class' => 'form-control controles',
@@ -242,7 +244,7 @@ use yii\jui\DatePicker;
             <div class="container-fluid flex-vertical-center">
                 <div class="col-sm-2 padding-0">Localidad:</div>
                 <div class="col-sm-2 padding-0">
-                    <?= Html::activeDropDownList($model, 'localidad',$localidades, [
+                    <?= Html::activeDropDownList($model, 'idLoc',$localidades, [
                         'class' => 'form-control controles',
                         'style' => 'width: 90%'
                     ]);
@@ -269,7 +271,7 @@ use yii\jui\DatePicker;
                 <div class="col-sm-2 padding-0">
                     <?= DatePicker::widget([
                         'model' => $model,
-                        'attribute' => 'fchloc',
+                        'attribute' => 'fechaVive',
                         'dateFormat' => 'dd/MM/yyyy',
                         'options' => [
                             'class' => 'form-control controles',
@@ -348,7 +350,7 @@ use yii\jui\DatePicker;
     <div class="panel panel-default">
         <div class="panel-body">
             <div class="form-group" style="text-align:right">
-                <?= Html::submitButton('Grabar', ['class' => 'btn btn-success']) ?>
+            <?=Html::button('Grabar', ['class' => 'btn btn-success', 'id' => 'btnGrabar', 'onclick' => "f_grabar();"]);?>
             </div>
         </div>
     </div>
@@ -413,4 +415,19 @@ $(document).ready(function(){
 	function f_borrar(cant){
 		$( "#orden" + cant ).remove();
 	}
+
+    function f_grabar(){
+        $.ajax({
+            url: "<?= Url::to(['create','scenario' => $scenario])?>",
+            type: 'post',
+            data: $("#formCliente").serialize(),
+            success: function(data) {
+                alert(data);
+                /*datos = jQuery.parseJSON(data); 
+                
+                if ( datos.error != "" )
+                    mostrarErrores( datos.error, "#form_errorSummary" );*/
+            }
+        });
+    }
 </script>

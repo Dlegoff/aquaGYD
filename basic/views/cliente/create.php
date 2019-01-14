@@ -15,7 +15,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= $this->render('_form', [
         'model' => $model,
         'tipos' => $tipos,
-        'localidades' => $localidades
+        'localidades' => $localidades,
+        'scenario' => 'insert'
     ]) ?>
 
 </div>

@@ -70,9 +70,11 @@ class ClienteController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    public function actionCreate($scenario='')
     {
+        //print_r($scenario);exit;
         $model = new Cliente();
+        $model->setScenario($scenario);
         $modelLoc= new Localidad();
         $tipos=utb::setCombo($model->getTipoClientes(),'codctipo');
         /**
@@ -84,7 +86,10 @@ class ClienteController extends Controller
 
         if ($model->load(Yii::$app->request->post())/* && $model->save()*/) {
             $model->grabarCliente();
-            print_r($model);exit;
+            if($model->hasErrors()){
+                $error=$model->getErrors();
+                return json_encode($error);
+            }
             return $this->redirect(['view', 'id' => $model->NroCli]);
         }
 
