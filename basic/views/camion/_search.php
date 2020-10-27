@@ -6,6 +6,7 @@ use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $model app\models\CamionBuscar */
 /* @var $form yii\widgets\ActiveForm */
+/** aaaaaa */
 ?>
 
 <div class="camion-search">
